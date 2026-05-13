@@ -30,7 +30,12 @@ function formatWeekLabel(weekStartStr) {
   const mon = new Date(y, m - 1, d);
   const sat = new Date(y, m - 1, d + 5);
   const fmt = dt => dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const fmtShort = dt => dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
   const wk = getWeekNumber(mon);
+  const isMobile = window.innerWidth <= 640;
+  if (isMobile) {
+    return `${fmtShort(mon)} – ${fmtShort(sat)} (W${wk})`;
+  }
   return `${fmt(mon)} – ${fmt(sat)}  (Week ${wk})`;
 }
 

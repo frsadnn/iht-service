@@ -53,7 +53,8 @@ function renderTabs() {
     dateObj.setDate(dateObj.getDate() + i);
     const dateNum = dateObj.getDate();
     const month = dateObj.getMonth() + 1;
-    tab.textContent = `${name} ${dateNum}/${month}`;
+    const shortName = name.slice(0, 3);
+    tab.innerHTML = `<span class="day-full">${name}</span><span class="day-short">${shortName}</span> ${dateNum}/${month}`;
     tab.onclick = () => switchDay(dk);
     container.appendChild(tab);
   });

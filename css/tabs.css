@@ -26,6 +26,14 @@
   background: var(--bg-input);
 }
 
+.day-full { display: inline; }
+.day-short { display: none; }
+
+@media (max-width: 640px) {
+  .day-full { display: none; }
+  .day-short { display: inline; }
+}
+
 .day-tab.active {
   background: transparent;
   color: var(--accent);

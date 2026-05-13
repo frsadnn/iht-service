@@ -23,17 +23,27 @@
 
   .header-top {
     padding-bottom: 6px;
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+
+  .header-center {
     gap: 8px;
-    flex-wrap: wrap;
   }
 
   .header-bottom {
     padding: 6px 0;
   }
 
-  .header-logo { height: 22px; }
-  .header-subtitle { font-size: 9px; letter-spacing: 1px; }
-  .header-badge { width: 72px; }
+  .header-logo { height: 20px; }
+  .header-subtitle { font-size: 8px; letter-spacing: 0.8px; }
+  .header-badge { width: 56px; }
+
+  .user-info { gap: 5px; font-size: 11px; }
+  .user-name { font-size: 11px; }
+  .role-badge { font-size: 9px; padding: 1px 5px; }
+  .sync-status { font-size: 10px; }
+  .sync-dot { width: 6px; height: 6px; }
 
   .menu-toggle {
     top: max(10px, calc(env(safe-area-inset-top) + 6px));
@@ -46,13 +56,18 @@
   .week-nav {
     margin-left: 0;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .week-nav button {
+    padding: 5px 10px;
+    font-size: 12px;
   }
 
   .week-label {
     min-width: 0;
-    flex: 1;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-white);
     text-align: center;
   }

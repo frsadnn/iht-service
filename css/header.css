@@ -9,12 +9,27 @@ header {
   flex-wrap: wrap;
 }
 
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
 .header-logo {
-  height: 36px;
+  height: 32px;
   width: auto;
   object-fit: contain;
-  flex-shrink: 0;
   mix-blend-mode: screen;
+}
+
+.header-subtitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .week-nav {

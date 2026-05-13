@@ -8,7 +8,6 @@
   }
 
   header { flex-shrink: 0; }
-  .toolbar { flex-shrink: 0; }
   .days-tabs { flex-shrink: 0; }
   .content {
     flex: 1;
@@ -19,11 +18,19 @@
   }
 
   header {
-    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 14px 8px;
+    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 10px 8px 52px;
     gap: 6px;
   }
 
-  header h1 { font-size: 14px; }
+  header h1 { font-size: 13px; }
+
+  .menu-toggle {
+    top: max(10px, calc(env(safe-area-inset-top) + 6px));
+    left: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
 
   .week-nav {
     margin-left: 0;
@@ -42,22 +49,9 @@
   .rev-box { font-size: 12px; }
   .rev-box input { width: 38px; padding: 3px 4px; }
 
-  .toolbar {
-    padding: 6px 10px;
-    gap: 6px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .toolbar::-webkit-scrollbar { display: none; }
-
-  .toolbar button {
-    padding: 10px 12px;
-    font-size: 12px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    border-radius: var(--radius-lg);
+  .sidebar {
+    width: 220px;
+    left: -230px;
   }
 
   .days-tabs {

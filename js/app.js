@@ -23,6 +23,13 @@ function initApp() {
     });
   });
 
+  // Close sidebar on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && $('sidebar').classList.contains('open')) {
+      toggleSidebar();
+    }
+  });
+
   if (VIEW_ONLY) {
     applyRole('view-only');
     $('authOverlay').classList.remove('open');
@@ -33,6 +40,16 @@ function initApp() {
   }
 
   render();
+}
+
+function toggleSidebar() {
+  const sidebar = $('sidebar');
+  const overlay = $('sidebarOverlay');
+  const toggle = $('menuToggle');
+  const isOpen = sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', !isOpen);
+  overlay.classList.toggle('open', !isOpen);
+  toggle.classList.toggle('open', !isOpen);
 }
 
 document.addEventListener('DOMContentLoaded', initApp);

@@ -75,7 +75,6 @@
 }
 
 /* Role-based permission CSS rules */
-.view-only .toolbar { display: none; }
 .view-only .rev-box input { pointer-events: none; border-color: transparent; background: transparent; }
 .view-only .btn-edit-job { display: none; }
 .view-only .holiday-toggle input,
@@ -87,14 +86,7 @@
 .view-only .btn-requests { display: none; }
 
 /* Salesman */
-.role-salesman .btn-add { display: none; }
 .role-salesman .btn-edit-job { display: none; }
-.role-salesman .btn-del-week { display: none; }
-.role-salesman .btn-copy { display: none; }
-.role-salesman .btn-load { display: none; }
-.role-salesman .btn-backup { display: none; }
-.role-salesman .btn-pdf { display: none; }
-.role-salesman .btn-users { display: none; }
 .role-salesman .holiday-toggle input,
 .role-salesman .holiday-toggle label[for] { pointer-events: none; }
 .role-salesman .chip-btn { display: none; }
@@ -103,26 +95,12 @@
 .role-salesman #ibToggle,
 .role-salesman #ibAmountRow { display: none; }
 .role-salesman .status-badge { cursor: default !important; }
-.role-salesman .btn-my-jobs { display: inline-flex; align-items: center; }
 
 /* Technician */
-.role-technician .btn-add { display: none; }
 .role-technician .btn-edit-job { display: none; }
-.role-technician .btn-del-week { display: none; }
-.role-technician .btn-copy { display: none; }
-.role-technician .btn-summary { display: none; }
-.role-technician .btn-load { display: none; }
-.role-technician .btn-backup { display: none; }
-.role-technician .btn-pdf { display: none; }
-.role-technician .btn-users { display: none; }
 .role-technician .holiday-toggle { display: none; }
 .role-technician .chip-btn { display: none; }
 .role-technician .rev-box { display: none; }
 .role-technician .manage-members { display: none; }
 .role-technician .ib-badge { display: none; }
 .role-technician .job-card.internal-billing { border-color: var(--border); border-left-width: 1px; }
-.role-technician .btn-request { display: none; }
-.role-technician .btn-requests { display: none; }
-
-/* Admin hides new request button (they assign, not create) */
-.role-admin .btn-request { display: none; }

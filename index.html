@@ -31,7 +31,7 @@
   <div id="authOverlay" class="auth-overlay open">
     <!-- Login card -->
     <div id="loginCard" class="auth-card">
-      <h2>⚙ Service Schedule</h2>
+      <h2>⚙ Weekly Service Schedule</h2>
       <p>Sign in to access the schedule</p>
       <input id="loginEmail" class="auth-input" type="email" placeholder="Email">
       <input id="loginPass" class="auth-input" type="password" placeholder="Password"
@@ -90,6 +90,7 @@
 
     <div class="week-nav">
       <button onclick="navigateWeek(-1)">◀ Prev</button>
+      <button onclick="goToToday()" style="background:var(--accent);color:#fff">Today</button>
       <span id="weekLabel" class="week-label"></span>
       <button onclick="navigateWeek(1)">Next ▶</button>
     </div>
@@ -159,8 +160,10 @@
         <input id="jobAddress" type="text">
       </div>
       <div class="form-row">
-        <label>Salesman (in brackets)</label>
-        <input id="jobSalesman" type="text">
+        <label>Salesman</label>
+        <select id="jobSalesman">
+          <option value="">-- Select salesman --</option>
+        </select>
         <span class="manage-members" onclick="toggleSalesmanManage()">+ Manage salesmen</span>
         <div id="salesmanManageArea" style="display:none">
           <div class="member-manage-row">
@@ -176,8 +179,8 @@
         <textarea id="jobDesc"></textarea>
       </div>
       <div class="form-row">
-        <label id="ibToggle" class="ib-toggle" onclick="toggleIB(this)">
-          <input type="checkbox"> Internal Billing
+        <label id="ibToggle" class="ib-toggle">
+          <input type="checkbox" onchange="handleIBChange(this)"> Internal Billing
         </label>
       </div>
       <div id="ibAmountRow" class="form-row" style="display:none">
@@ -415,6 +418,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Toast container -->
+  <div id="toastContainer" class="toast-container"></div>
 
   <!-- ═══════════ FIREBASE SDK ═══════════ -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

@@ -53,6 +53,20 @@ function openModal(id) {
   $(id).classList.add('open');
 }
 
+function showToast(message, type = 'success', duration = 3000) {
+  const container = $('toastContainer');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  container.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
 function setSyncStatus(status) {
   const dot = $('syncDot');
   const label = $('syncLabel');

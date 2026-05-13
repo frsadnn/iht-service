@@ -32,7 +32,7 @@ function addFile() {
   input.onchange = e => {
     const file = e.target.files[0];
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) { alert('File too large. Max 5 MB.'); return; }
+    if (file.size > 5 * 1024 * 1024) { showToast('File too large. Max 5 MB.', 'error'); return; }
     const data = getDayData(fileContext.dayKey);
     const job = data.jobs[fileContext.jobIdx];
     if (!job) return;

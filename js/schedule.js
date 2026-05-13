@@ -28,6 +28,7 @@ function render() {
   renderHeader();
   renderTabs();
   renderDayContent();
+  updateBillingBadge();
 }
 
 function renderHeader() {
@@ -98,7 +99,7 @@ function renderDayContent() {
 }
 
 function escapeAttr(str) {
-  return str.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function escapeHtml(str) {

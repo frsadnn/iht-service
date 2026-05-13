@@ -17,6 +17,12 @@ function initApp() {
     }
   });
 
+  document.querySelectorAll('.modal-bg').forEach(bg => {
+    bg.addEventListener('click', e => {
+      if (e.target === bg) bg.classList.remove('open');
+    });
+  });
+
   if (VIEW_ONLY) {
     applyRole('view-only');
     $('authOverlay').classList.remove('open');

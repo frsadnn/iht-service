@@ -58,28 +58,28 @@ function saveToHistory() {
   };
   firebase.database().ref('savedSchedules').push(save)
     .then(() => {
-      alert('Schedule saved!');
+      showToast('Schedule saved!', 'success');
       if ($('historyPanel').classList.contains('open')) loadHistory();
     })
-    .catch(e => alert('Failed to save: ' + e.message));
+    .catch(e => showToast('Failed to save: ' + e.message, 'error'));
 }
 
 function restoreHistory(key) {
   if (!confirm('Load this schedule? Current unsaved changes will be lost.')) return;
   firebase.database().ref('savedSchedules/' + key + '/data').once('value').then(snap => {
     const data = snap.val();
-    if (!data) { alert('No data found.'); return; }
+    if (!data) { showToast('No data found.', 'error'); return; }
     applyStateData(data);
     currentDay = dayKey(state.weekStart, 0);
     persistState();
     render();
     closeHistory();
-  }).catch(e => alert('Failed to load: ' + e.message));
+  }).catch(e => showToast('Failed to load: ' + e.message, 'error'));
 }
 
 function deleteHistory(key) {
   if (!confirm('Delete this saved schedule?')) return;
   firebase.database().ref('savedSchedules/' + key).remove()
     .then(() => loadHistory())
-    .catch(e => alert('Failed to delete: ' + e.message));
+    .catch(e => showToast('Failed to delete: ' + e.message, 'error'));
 }

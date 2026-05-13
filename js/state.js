@@ -71,7 +71,7 @@ function persistState() {
   data.lastModified = Date.now();
   state.lastModified = data.lastModified;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  if (fbRef && currentRole === 'admin') {
+  if (fbRef && currentRole !== 'view-only') {
     fbRef.set(data).catch(e => {
       console.error('Firebase save error:', e);
       setSyncStatus('offline');

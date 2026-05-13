@@ -127,7 +127,7 @@ function startEditName() {
     input.replaceWith(restored);
     if (newName && newName !== current && currentUser) {
       firebase.database().ref('users/' + currentUser.uid + '/name').set(newName)
-        .catch(e => alert('Failed to update name: ' + e.message));
+        .catch(e => showToast('Failed to update name: ' + e.message, 'error'));
     }
   };
   input.addEventListener('blur', save);

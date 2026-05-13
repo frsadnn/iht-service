@@ -41,7 +41,7 @@ function addPhoto() {
     let processed = 0;
     files.forEach(file => {
       if (file.size > 2 * 1024 * 1024) {
-        alert(`${file.name} is too large. Max 2 MB per photo.`);
+        showToast(`${file.name} is too large. Max 2 MB per photo.`, 'error');
         processed++;
         return;
       }

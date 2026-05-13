@@ -44,7 +44,7 @@ function editRequest(key) {
 
 function submitServiceRequest() {
   const customer = $('srCustomer').value.trim();
-  if (!customer) { alert('Please enter customer name.'); return; }
+  if (!customer) { showToast('Please enter customer name.', 'error'); return; }
   const fields = {
     customer,
     contact: $('srContact').value.trim(),
@@ -66,7 +66,7 @@ function submitServiceRequest() {
         openModal('requestsBg');
         loadRequests();
       })
-      .catch(e => alert('Failed to update: ' + e.message));
+      .catch(e => showToast('Failed to update: ' + e.message, 'error'));
   } else {
     const req = {
       ...fields,
@@ -89,9 +89,9 @@ function submitServiceRequest() {
         ].filter(Boolean).join('\n');
         sendTelegramToAdmins(lines);
         closeModal('svcReqBg');
-        alert('Request submitted! Admin will assign it to the schedule.');
+        showToast('Request submitted! Admin will assign it to the schedule.', 'success');
       })
-      .catch(e => alert('Failed to submit: ' + e.message));
+      .catch(e => showToast('Failed to submit: ' + e.message, 'error'));
   }
 }
 
@@ -171,7 +171,7 @@ function deleteRequest(key) {
       }
       loadRequests();
     });
-  }).catch(e => alert('Failed: ' + e.message));
+  }).catch(e => showToast('Failed: ' + e.message, 'error'));
 }
 
 function renderReqFileList() {
@@ -202,7 +202,7 @@ function addReqFile() {
   input.onchange = e => {
     const file = e.target.files[0];
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) { alert('File too large. Max 5 MB.'); return; }
+    if (file.size > 5 * 1024 * 1024) { showToast('File too large. Max 5 MB.', 'error'); return; }
     const reader = new FileReader();
     reader.onload = () => {
       currentReqFiles.push({ name: file.name, size: file.size, data: reader.result });

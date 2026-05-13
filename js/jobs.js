@@ -10,7 +10,7 @@ function openAddJob() {
   $('jobCustomer').value = '';
   $('jobContact').value = '';
   $('jobAddress').value = '';
-  $('jobSalesman').value = '';
+  populateSalesmanDropdown('');
   $('jobDesc').value = '';
   $('ibToggle').classList.remove('on');
   $('ibToggle').querySelector('input').checked = false;
@@ -32,7 +32,7 @@ function openEditJob(dk, idx) {
   $('jobCustomer').value = job.customer || '';
   $('jobContact').value = job.contact || '';
   $('jobAddress').value = job.address || '';
-  $('jobSalesman').value = job.salesman || '';
+  populateSalesmanDropdown(job.salesman || '');
   $('jobDesc').value = job.desc || '';
 
   const isIB = !!job.internalBilling;
@@ -54,7 +54,7 @@ function saveJob() {
   const ibAmount = parseFloat($('ibAmount').value) || 0;
 
   if (!customer && !team) {
-    alert('Please enter at least a customer or team.');
+    showToast('Please enter at least a customer or team.', 'error');
     return;
   }
 
@@ -151,6 +151,7 @@ function renderJobCard(job, idx, dk) {
       <button class="btn-edit-job" onclick="openEditJob('${dk}',${idx})" title="Edit">✏️</button>
       <button class="btn-comment" onclick="openComments('${dk}',${idx})" title="Comments">${commentBadge}💬</button>
       <button class="btn-photo" onclick="openPhotos('${dk}',${idx})" title="Photos">${photoBadge}📷</button>
+      <button class="btn-edit-job" onclick="openFiles('${dk}',${idx})" title="Files">📎</button>
       <button class="btn-edit-job" onclick="openReschedule('${dk}',${idx})" title="Reschedule">📅</button>
       <button class="btn-edit-job" onclick="moveJobUp('${dk}',${idx})" title="Move Up">▲</button>
       <button class="btn-edit-job" onclick="moveJobDown('${dk}',${idx})" title="Move Down">▼</button>
@@ -191,10 +192,8 @@ function getJobCheckedMembers() {
   return [...document.querySelectorAll('#jobTeamGrid input:checked')].map(i => i.value);
 }
 
-function toggleIB(label) {
-  const cb = label.querySelector('input');
-  cb.checked = !cb.checked;
-  label.classList.toggle('on', cb.checked);
+function handleIBChange(cb) {
+  cb.closest('.ib-toggle').classList.toggle('on', cb.checked);
   $('ibAmountRow').style.display = cb.checked ? '' : 'none';
 }
 

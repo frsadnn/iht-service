@@ -1,7 +1,7 @@
 function exportPDF() {
   const { jsPDF } = window.jspdf;
   if (!jsPDF) {
-    alert('PDF library not loaded. Please check your internet connection.');
+    showToast('PDF library not loaded. Check your internet connection.', 'error');
     return;
   }
 

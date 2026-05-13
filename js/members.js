@@ -20,7 +20,7 @@ function addMember() {
       added++;
     }
   });
-  if (added === 0) { alert('Member(s) already exist.'); return; }
+  if (added === 0) { showToast('Member(s) already exist.', 'error'); return; }
   input.value = '';
   persistState();
   renderMemberRemoveList();
@@ -64,11 +64,25 @@ function addSalesman() {
   const name = input.value.trim();
   if (!name) return;
   if (!state.salesmen) state.salesmen = [];
-  if (state.salesmen.includes(name)) { alert('Salesman already exists.'); return; }
+  if (state.salesmen.includes(name)) { showToast('Salesman already exists.', 'error'); return; }
   state.salesmen.push(name);
   input.value = '';
   persistState();
   renderSalesmanRemoveList();
+  const current = $('jobSalesman') ? $('jobSalesman').value : '';
+  populateSalesmanDropdown(current);
+}
+
+function populateSalesmanDropdown(selected) {
+  const sel = $('jobSalesman');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">-- Select salesman --</option>';
+  (state.salesmen || []).forEach(name => {
+    sel.innerHTML += `<option value="${escapeAttr(name)}" ${name === selected ? 'selected' : ''}>${escapeHtml(name)}</option>`;
+  });
+  if (selected && !(state.salesmen || []).includes(selected)) {
+    sel.innerHTML += `<option value="${escapeAttr(selected)}" selected>${escapeHtml(selected)}</option>`;
+  }
 }
 
 function removeSalesman(name) {

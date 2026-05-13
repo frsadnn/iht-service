@@ -22,7 +22,7 @@ function restoreBackup() {
       try {
         const data = JSON.parse(reader.result);
         if (!data.schedule) {
-          alert('Invalid backup file. Missing schedule data.');
+          showToast('Invalid backup file. Missing schedule data.', 'error');
           return;
         }
         if (!confirm('Restore from backup? Current data will be overwritten.')) return;
@@ -30,9 +30,9 @@ function restoreBackup() {
         currentDay = dayKey(state.weekStart, 0);
         persistState();
         render();
-        alert('Backup restored successfully!');
+        showToast('Backup restored successfully!', 'success');
       } catch (err) {
-        alert('Invalid JSON file: ' + err.message);
+        showToast('Invalid JSON file: ' + err.message, 'error');
       }
     };
     reader.readAsText(file);

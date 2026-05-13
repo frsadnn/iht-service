@@ -51,12 +51,12 @@ function changeUserRole(uid, newRole) {
         });
       }
     })
-    .catch(e => alert('Failed to update role: ' + e.message));
+    .catch(e => showToast('Failed to update role: ' + e.message, 'error'));
 }
 
 function deleteUser(uid) {
   if (!confirm('Remove this user? They will need to register again.')) return;
   firebase.database().ref('users/' + uid).remove()
     .then(() => renderUsersList())
-    .catch(e => alert('Failed to remove user: ' + e.message));
+    .catch(e => showToast('Failed to remove user: ' + e.message, 'error'));
 }

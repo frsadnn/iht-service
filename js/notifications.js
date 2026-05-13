@@ -49,7 +49,7 @@ function openTgSettings() {
 }
 
 function findMyChatId() {
-  if (!TG_TOKEN) { alert('Telegram bot token not configured.'); return; }
+  if (!TG_TOKEN) { showToast('Telegram bot token not configured.', 'error'); return; }
   const btn = $('tgFindBtn');
   const msg = $('tgFindMsg');
   btn.textContent = 'Searching...';
@@ -95,7 +95,7 @@ function saveTelegramChatId() {
       document.querySelector('.btn-tg').classList.add('connected');
       setTimeout(() => closeModal('tgSettingsBg'), 1500);
     })
-    .catch(e => alert('Failed: ' + e.message));
+    .catch(e => showToast('Failed: ' + e.message, 'error'));
 }
 
 function snapshotCommentCounts() {

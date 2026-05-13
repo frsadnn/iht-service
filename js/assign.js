@@ -35,7 +35,7 @@ function getAssignChecked() {
 function confirmAssign() {
   if (!assigningReqKey || !assigningReq) return;
   const date = $('assignDate').value;
-  if (!date) { alert('Please select a date.'); return; }
+  if (!date) { showToast('Please select a date.', 'error'); return; }
   const team = getAssignChecked();
 
   const dayData = getDayData(date);

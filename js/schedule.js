@@ -117,10 +117,9 @@ function renderAbsenceRow(dk, data) {
     const status = absences[name] || '';
     const cls = status ? `leave-chip ${status}` : 'leave-chip';
     html += `<div class="${cls}">
-      <span class="chip-name">${escapeHtml(name)}${status ? `<span class="absence-badge ${status}">${status.toUpperCase()}</span>` : ''}</span>
-      <button class="chip-btn btn-leave" onclick="setAbsence('${dk}','${escapeAttr(name)}','leave')">L</button>
-      <button class="chip-btn btn-mc" onclick="setAbsence('${dk}','${escapeAttr(name)}','mc')">MC</button>
-      <button class="chip-btn" onclick="setAbsence('${dk}','${escapeAttr(name)}','')">✓</button>
+      <span class="chip-name">${escapeHtml(name)}${status ? `<span class="absence-badge ${status}">${status === 'leave' ? 'AL' : 'MC'}</span>` : ''}</span>
+      <button class="chip-btn btn-leave" onclick="setAbsence('${dk}','${escapeAttr(name)}','${status === 'leave' ? '' : 'leave'}')">AL</button>
+      <button class="chip-btn btn-mc" onclick="setAbsence('${dk}','${escapeAttr(name)}','${status === 'mc' ? '' : 'mc'}')">MC</button>
     </div>`;
   });
   html += '</div>';

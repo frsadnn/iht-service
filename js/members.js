@@ -10,13 +10,24 @@ function toggleMemberManage() {
 
 function addMember() {
   const input = $('newMemberInput');
-  const name = input.value.trim();
-  if (!name) return;
-  if (state.members.includes(name)) { alert('Member already exists.'); return; }
-  state.members.push(name);
+  const raw = input.value.trim();
+  if (!raw) return;
+  const names = raw.split(',').map(n => n.trim()).filter(Boolean);
+  let added = 0;
+  names.forEach(name => {
+    if (!state.members.includes(name)) {
+      state.members.push(name);
+      added++;
+    }
+  });
+  if (added === 0) { alert('Member(s) already exist.'); return; }
   input.value = '';
   persistState();
   renderMemberRemoveList();
+  if ($('jobModalBg').classList.contains('open')) {
+    const checked = getJobCheckedMembers();
+    renderJobMemberGrid(checked);
+  }
   render();
 }
 

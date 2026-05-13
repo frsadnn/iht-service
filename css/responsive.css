@@ -24,6 +24,7 @@
 
   .header-logo { height: 22px; }
   .header-subtitle { font-size: 9px; letter-spacing: 1px; }
+  .header-badge { height: 32px; }
 
   .menu-toggle {
     top: max(10px, calc(env(safe-area-inset-top) + 6px));

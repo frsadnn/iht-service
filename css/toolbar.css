@@ -202,5 +202,25 @@
 
 .role-admin .sidebar-btn.btn-request { display: none; }
 
+/* Spacer pushes logout to the bottom */
+.sidebar-spacer {
+  flex: 1;
+}
+
+.sidebar-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.sidebar-btn.btn-logout {
+  color: var(--text-secondary);
+}
+
+.sidebar-btn.btn-logout:hover {
+  background: rgba(231, 76, 60, 0.15);
+  color: var(--red);
+}
+
 .view-only .sidebar { display: none; }
 .view-only .menu-toggle { display: none; }

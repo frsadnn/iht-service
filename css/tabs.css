@@ -1,30 +1,36 @@
 .days-tabs {
   display: flex;
-  gap: 4px;
-  padding: 12px 20px 0;
+  gap: 0;
+  padding: 0;
   border-bottom: 2px solid var(--border);
   background: var(--bg-primary);
-  flex-wrap: wrap;
 }
 
 .day-tab {
-  padding: 8px 18px;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  flex: 1 1 0;
+  padding: 12px 8px;
+  border-radius: 0;
   cursor: pointer;
   font-size: var(--font-base);
   font-weight: 600;
-  border: 1px solid var(--border-light);
-  border-bottom: none;
-  background: var(--bg-input);
-  color: #ccc;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  text-align: center;
   transition: var(--transition);
 }
 
-.day-tab.active {
-  background: var(--accent);
+.day-tab:hover {
   color: var(--text-white);
-  border-color: var(--accent);
-  box-shadow: 0 -2px 8px rgba(233, 69, 96, 0.45);
+  background: var(--bg-input);
+}
+
+.day-tab.active {
+  background: transparent;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 700;
 }
 
 .day-tab.has-jobs {

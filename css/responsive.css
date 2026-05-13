@@ -54,18 +54,9 @@
     left: -230px;
   }
 
-  .days-tabs {
-    flex-wrap: nowrap;
-    padding: 8px 10px 0;
-    gap: 4px;
-  }
-
   .day-tab {
-    flex: 1 1 0;
-    padding: 8px 2px;
+    padding: 10px 4px;
     font-size: 11px;
-    min-width: 0;
-    text-align: center;
   }
 
   .day-header { gap: 8px; margin-bottom: 12px; }

@@ -23,11 +23,7 @@
 
   .header-top {
     padding-bottom: 6px;
-  }
-
-  .header-mid {
     gap: 8px;
-    padding: 6px 0;
     flex-wrap: wrap;
   }
 

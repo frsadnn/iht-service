@@ -68,7 +68,6 @@ function renderDayContent() {
   const dateLabel = formatDateShort(currentDay);
 
   let html = `<div class="day-header">
-    <span class="day-title">${dayName} — ${dateLabel}</span>
     <label class="holiday-toggle">
       <input type="checkbox" ${data.holiday ? 'checked' : ''} onchange="toggleHoliday(this.checked)">
       Public Holiday

@@ -1,0 +1,160 @@
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.photo-thumb {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--bg-input);
+}
+
+.photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-thumb .photo-del {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(233, 69, 96, 0.85);
+  border: none;
+  color: var(--text-white);
+  border-radius: var(--radius-sm);
+  width: 22px;
+  height: 22px;
+  font-size: var(--font-sm);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-thumb:hover .photo-del {
+  display: flex;
+}
+
+.photo-meta {
+  font-size: 10px;
+  color: #666;
+  padding: 2px 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.photo-upload-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-input);
+  border: 2px dashed var(--blue);
+  color: var(--blue-light);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: var(--font-base);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.photo-upload-btn:hover {
+  background: #1a3a5c;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: var(--text-white);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox-caption {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* File attachments */
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+}
+
+.file-item .file-name {
+  flex: 1;
+  font-size: var(--font-base);
+  color: var(--blue-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.file-item .file-size {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.file-item .file-del {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 14px;
+}

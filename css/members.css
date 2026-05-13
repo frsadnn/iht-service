@@ -1,0 +1,217 @@
+.member-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.member-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: var(--font-base);
+  transition: all 0.15s;
+}
+
+.member-chip:hover {
+  border-color: var(--accent);
+}
+
+.member-chip.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.member-chip input {
+  display: none;
+}
+
+.member-chip.absent {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.member-chip.assigned:not(.checked) {
+  background: #1a3a1a;
+  border-color: var(--green);
+  color: var(--green-light);
+}
+
+.manage-members {
+  margin-top: 8px;
+  font-size: var(--font-sm);
+  color: #666;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.manage-members:hover {
+  color: var(--text-secondary);
+}
+
+.member-manage-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.member-manage-row input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.member-manage-row button {
+  background: var(--green);
+  border: none;
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.member-remove-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.member-remove-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.member-remove-chip button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Absence / Leave row */
+.leave-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 12px;
+}
+
+.leave-label {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 2px;
+}
+
+.leave-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: default;
+  transition: border-color 0.15s;
+}
+
+.leave-chip:hover {
+  border-color: #888;
+}
+
+.leave-chip .chip-name {
+  padding: 5px 9px;
+  color: #ccc;
+}
+
+.leave-chip .chip-btn {
+  padding: 5px 8px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  border-left: 1px solid var(--border-light);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.leave-chip .chip-btn:hover {
+  background: var(--bg-input);
+  color: var(--text-white);
+}
+
+.leave-chip.leave .chip-name { color: #e67e22; }
+.leave-chip.leave { border-color: #e67e22; }
+.leave-chip.leave .chip-btn.btn-leave { background: #e67e22; color: var(--text-white); }
+
+.leave-chip.mc .chip-name { color: #9b59b6; }
+.leave-chip.mc { border-color: #9b59b6; }
+.leave-chip.mc .chip-btn.btn-mc { background: #9b59b6; color: var(--text-white); }
+
+/* IB toggle in modal */
+.ib-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 8px 12px;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 4px;
+  font-size: var(--font-base);
+}
+
+.ib-toggle:hover {
+  border-color: var(--orange);
+}
+
+.ib-toggle.on {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #000;
+  font-weight: 700;
+}
+
+.ib-toggle input {
+  display: none;
+}

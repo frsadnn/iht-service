@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Service Schedule</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="css/tabs.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/members.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/comments.css">
+  <link rel="stylesheet" href="css/requests.css">
+  <link rel="stylesheet" href="css/history.css">
+  <link rel="stylesheet" href="css/photos.css">
+  <link rel="stylesheet" href="css/users.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ═══════════ AUTH OVERLAY ═══════════ -->
+  <div id="authOverlay" class="auth-overlay open">
+    <!-- Login card -->
+    <div id="loginCard" class="auth-card">
+      <h2>⚙ Service Schedule</h2>
+      <p>Sign in to access the schedule</p>
+      <input id="loginEmail" class="auth-input" type="email" placeholder="Email">
+      <input id="loginPass" class="auth-input" type="password" placeholder="Password"
+        onkeydown="if(event.key==='Enter')loginUser()">
+      <div id="loginError" class="auth-error"></div>
+      <button class="auth-btn" onclick="loginUser()">Sign In</button>
+      <div class="auth-link-row">
+        <span class="auth-view-link" onclick="showRegister()">New user? Register →</span>
+      </div>
+    </div>
+
+    <!-- Register card -->
+    <div id="registerCard" class="auth-card" style="display:none">
+      <h2>👤 Create Account</h2>
+      <p>Request access to the schedule</p>
+      <input id="regName" class="auth-input" type="text" placeholder="Full Name">
+      <input id="regEmail" class="auth-input" type="email" placeholder="Email">
+      <input id="regPass" class="auth-input" type="password" placeholder="Password">
+      <input id="regPassConfirm" class="auth-input" type="password" placeholder="Confirm Password"
+        onkeydown="if(event.key==='Enter')registerUser()">
+      <div id="regError" class="auth-error"></div>
+      <button class="auth-btn" onclick="registerUser()">Register</button>
+      <div class="auth-link-row">
+        <span class="auth-view-link" onclick="showLogin()">← Back to sign in</span>
+      </div>
+    </div>
+
+    <!-- Pending card -->
+    <div id="pendingCard" class="auth-card" style="display:none">
+      <h2>⏳ Pending Approval</h2>
+      <p>Your account is waiting for admin approval. Contact the administrator to get access.</p>
+      <button class="auth-btn" onclick="logoutUser()">Sign Out</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ HEADER ═══════════ -->
+  <header>
+    <h1>⚙ Service Schedule</h1>
+    <span class="view-only-badge">VIEW ONLY</span>
+
+    <div id="userInfo" class="user-info" style="display:none">
+      <span id="userName" class="user-name" title="Click to edit name" onclick="startEditName()"></span>
+      <span id="userRoleBadge" class="role-badge"></span>
+      <button class="btn-tg" onclick="openTgSettings()" title="Telegram Notifications">🔔</button>
+      <button class="btn-logout" onclick="logoutUser()">Sign Out</button>
+    </div>
+
+    <div class="sync-status">
+      <span id="syncDot" class="sync-dot"></span>
+      <span id="syncLabel">Connecting...</span>
+    </div>
+
+    <div class="rev-box">
+      Rev <input id="revInput" type="number" min="0" value="0">
+    </div>
+
+    <div class="week-nav">
+      <button onclick="navigateWeek(-1)">◀ Prev</button>
+      <span id="weekLabel" class="week-label"></span>
+      <button onclick="navigateWeek(1)">Next ▶</button>
+    </div>
+  </header>
+
+  <!-- ═══════════ TOOLBAR ═══════════ -->
+  <div class="toolbar">
+    <button class="btn-add" onclick="openAddJob()">+ Add Job</button>
+    <button class="btn-my-jobs" onclick="toggleMyJobs(this)">👤 My Jobs</button>
+    <button class="btn-search" onclick="openSearch()">🔍 Search</button>
+    <button class="btn-request" onclick="openServiceRequest()">📋 New Request</button>
+    <button class="btn-requests" onclick="openRequestsPanel()">📬 Requests<span id="reqCount" class="req-count" style="display:none">0</span></button>
+    <button class="btn-copy" onclick="openWhatsApp()">📋 Copy for WhatsApp</button>
+    <button class="btn-summary" onclick="openBillingSummary()">📊 Internal Billing<span id="ibCount"></span></button>
+    <button class="btn-save" onclick="openHistory()">📁 History</button>
+    <button class="btn-del-week" onclick="deleteWeek()">🗑 Delete Week</button>
+    <button class="btn-backup" onclick="downloadBackup()">⬇ Backup</button>
+    <button class="btn-backup" onclick="restoreBackup()">⬆ Restore</button>
+    <button class="btn-pdf" onclick="exportPDF()">📄 Export PDF</button>
+    <button class="btn-users" onclick="openManageUsers()">👥 Users</button>
+  </div>
+
+  <!-- ═══════════ DAY TABS ═══════════ -->
+  <div id="daysTabs" class="days-tabs"></div>
+
+  <!-- ═══════════ DAY CONTENT ═══════════ -->
+  <div id="dayContent" class="content"></div>
+
+  <!-- ═══════════ HISTORY PANEL ═══════════ -->
+  <div id="historyPanel" class="history-panel">
+    <button class="close-hist" onclick="closeHistory()">✕</button>
+    <h3>📁 Saved Schedules</h3>
+    <button style="width:100%;padding:8px;background:#8e44ad;border:none;color:#fff;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;margin-bottom:12px"
+      onclick="saveToHistory()">💾 Save Current Schedule</button>
+    <div id="historyList"></div>
+  </div>
+
+  <!-- ═══════════ MODALS ═══════════ -->
+
+  <!-- Add/Edit Job Modal -->
+  <div id="jobModalBg" class="modal-bg">
+    <div class="modal">
+      <h2 id="modalTitle">Add Job</h2>
+      <div class="form-row">
+        <label>Team Members</label>
+        <div id="jobTeamGrid" class="member-grid"></div>
+        <span class="manage-members" onclick="toggleMemberManage()">+ Manage members</span>
+        <div id="memberManageArea" style="display:none">
+          <div class="member-manage-row">
+            <input id="newMemberInput" type="text" placeholder="New member name"
+              onkeydown="if(event.key==='Enter')addMember()">
+            <button onclick="addMember()">Add</button>
+          </div>
+          <div id="memberRemoveList" class="member-remove-list"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Customer / Location</label>
+        <input id="jobCustomer" type="text">
+      </div>
+      <div class="form-row">
+        <label>Contact Number</label>
+        <input id="jobContact" type="text">
+      </div>
+      <div class="form-row">
+        <label>Address</label>
+        <input id="jobAddress" type="text">
+      </div>
+      <div class="form-row">
+        <label>Salesman (in brackets)</label>
+        <input id="jobSalesman" type="text">
+        <span class="manage-members" onclick="toggleSalesmanManage()">+ Manage salesmen</span>
+        <div id="salesmanManageArea" style="display:none">
+          <div class="member-manage-row">
+            <input id="newSalesmanInput" type="text" placeholder="New salesman name"
+              onkeydown="if(event.key==='Enter')addSalesman()">
+            <button onclick="addSalesman()">Add</button>
+          </div>
+          <div id="salesmanRemoveList" class="member-remove-list"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Job Description</label>
+        <textarea id="jobDesc"></textarea>
+      </div>
+      <div class="form-row">
+        <label id="ibToggle" class="ib-toggle" onclick="toggleIB(this)">
+          <input type="checkbox"> Internal Billing
+        </label>
+      </div>
+      <div id="ibAmountRow" class="form-row" style="display:none">
+        <label>Billing Amount (RM)</label>
+        <input id="ibAmount" type="number" min="0" step="0.01">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('jobModalBg')">Cancel</button>
+        <button class="btn-confirm" onclick="saveJob()">Save Job</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Preview Modal -->
+  <div id="whatsappBg" class="modal-bg">
+    <div class="modal">
+      <h2>WhatsApp Preview</h2>
+      <pre id="waPreview" class="wa-preview"></pre>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('whatsappBg')">Close</button>
+        <button class="btn-confirm" onclick="copyWhatsAppText()">📋 Copy Text</button>
+        <span id="copySuccessLabel" class="copy-success">Copied!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Modal -->
+  <div id="commentBg" class="modal-bg">
+    <div class="modal">
+      <h2>💬 Comments — <span id="commentJobInfo"></span></h2>
+      <div id="commentList" class="comment-list"></div>
+      <div class="comment-input-row">
+        <textarea id="commentTextarea" placeholder="Add a comment..."
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendComment()}"></textarea>
+        <button class="comment-send" onclick="sendComment()">Send</button>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('commentBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photos Modal -->
+  <div id="photoBg" class="modal-bg">
+    <div class="modal">
+      <h2>📷 Photos</h2>
+      <div id="photoGrid" class="photo-grid"></div>
+      <button class="photo-upload-btn" onclick="addPhoto()">📷 Add Photo</button>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('photoBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Files Modal -->
+  <div id="fileBg" class="modal-bg">
+    <div class="modal">
+      <h2>📎 Files</h2>
+      <div id="fileGrid" class="file-list"></div>
+      <button class="photo-upload-btn" onclick="addFile()">📎 Add File</button>
+      <div style="font-size:11px;color:#666;margin-top:4px">Max 5 MB per file</div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('fileBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="Photo">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div id="rescheduleBg" class="modal-bg">
+    <div class="modal">
+      <h2>📅 Reschedule Job</h2>
+      <div class="form-row">
+        <label>Move to Date</label>
+        <input id="reschedDate" type="date">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('rescheduleBg')">Cancel</button>
+        <button class="btn-confirm" onclick="confirmReschedule()">📅 Move Job</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="searchBg" class="modal-bg">
+    <div class="modal">
+      <h2>🔍 Search Jobs</h2>
+      <div class="form-row">
+        <input id="searchInput" type="text" placeholder="Search by customer, team, description...">
+      </div>
+      <div id="searchResults" style="max-height:400px;overflow-y:auto"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('searchBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Request Modal -->
+  <div id="svcReqBg" class="modal-bg">
+    <div class="modal">
+      <h2>📋 New Service Request</h2>
+      <div class="form-row">
+        <label>Customer / Location *</label>
+        <input id="srCustomer" type="text">
+      </div>
+      <div class="form-row">
+        <label>Contact Number</label>
+        <input id="srContact" type="text">
+      </div>
+      <div class="form-row">
+        <label>Address</label>
+        <input id="srAddress" type="text">
+      </div>
+      <div class="form-row">
+        <label>Preferred Service Date</label>
+        <input id="srDate" type="date">
+      </div>
+      <div class="form-row">
+        <label>Recommended No. of Technicians</label>
+        <select id="srTechCount">
+          <option value="">-- Not specified --</option>
+          <option value="1">1 technician</option>
+          <option value="2">2 technicians</option>
+          <option value="3">3 technicians</option>
+          <option value="4">4 technicians</option>
+          <option value="5">5 technicians</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Job Description / Issue</label>
+        <textarea id="srDesc"></textarea>
+      </div>
+      <div class="form-row">
+        <label>Attachments (PDF, Word, Excel, images — max 5 MB each)</label>
+        <button class="photo-upload-btn" onclick="addReqFile()">📎 Attach File</button>
+        <div id="reqFileList"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('svcReqBg')">Cancel</button>
+        <button class="btn-confirm" onclick="submitServiceRequest()">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Requests List Modal -->
+  <div id="requestsBg" class="modal-bg">
+    <div class="modal" style="max-width:600px">
+      <h2>📬 Service Requests</h2>
+      <div class="req-filter-row">
+        <button class="req-filter-btn active" onclick="filterRequests(this,'new')">🔵 New</button>
+        <button class="req-filter-btn" onclick="filterRequests(this,'scheduled')">✅ Scheduled</button>
+        <button class="req-filter-btn" onclick="filterRequests(this,'all')">All</button>
+      </div>
+      <div id="requestsList" class="req-list"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('requestsBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign to Schedule Modal -->
+  <div id="assignBg" class="modal-bg">
+    <div class="modal">
+      <h2>📅 Assign to Schedule</h2>
+      <div id="assignInfo" class="assign-info"></div>
+      <div class="form-row">
+        <label>Schedule Date *</label>
+        <input id="assignDate" type="date">
+      </div>
+      <div class="form-row">
+        <label>Team Members</label>
+        <div id="assignMemberGrid" class="member-grid"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('assignBg');openModal('requestsBg')">Back</button>
+        <button class="btn-confirm" onclick="confirmAssign()">➕ Add to Schedule</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telegram Settings Modal -->
+  <div id="tgSettingsBg" class="modal-bg">
+    <div class="modal">
+      <h2>🔔 Telegram Notifications</h2>
+      <div style="font-size:13px;color:#bbb;line-height:1.6;margin-bottom:16px">
+        <ol style="padding-left:20px">
+          <li>Open Telegram → search your bot → tap <strong>Start</strong></li>
+          <li>Send any message to the bot (e.g. "hi")</li>
+          <li>Come back here → tap <strong>Find My Chat ID</strong></li>
+          <li>Click <strong>Save</strong></li>
+        </ol>
+      </div>
+      <button id="tgFindBtn" class="photo-upload-btn" onclick="findMyChatId()">🔍 Find My Chat ID</button>
+      <div id="tgFindMsg" style="font-size:12px;margin-top:6px;min-height:16px"></div>
+      <div class="form-row" style="margin-top:12px">
+        <label>Your Chat ID</label>
+        <input id="tgChatIdInput" type="text">
+      </div>
+      <div id="tgSaveMsg" style="font-size:12px;color:#4caf50;min-height:16px"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('tgSettingsBg')">Cancel</button>
+        <button class="btn-confirm" onclick="saveTelegramChatId()">💾 Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Internal Billing Summary Modal -->
+  <div id="billingSummaryBg" class="modal-bg">
+    <div class="modal" style="max-width:650px">
+      <h2>📊 Internal Billing</h2>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#aaa;margin-bottom:8px;cursor:pointer">
+        <input id="ibPendingOnly" type="checkbox" checked onchange="toggleIBFilter(this.checked)">
+        ⏳ Pending only
+      </label>
+      <div id="billingSummaryContent"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('billingSummaryBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manage Users Modal -->
+  <div id="usersBg" class="modal-bg">
+    <div class="modal" style="max-width:550px">
+      <h2>👥 Manage Users</h2>
+      <div id="usersList" class="users-list"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('usersBg')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ FIREBASE SDK ═══════════ -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- jsPDF for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- ═══════════ APP JS (load order matters) ═══════════ -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/roles.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/schedule.js"></script>
+  <script src="js/members.js"></script>
+  <script src="js/holidays.js"></script>
+  <script src="js/jobs.js"></script>
+  <script src="js/comments.js"></script>
+  <script src="js/requests.js"></script>
+  <script src="js/assign.js"></script>
+  <script src="js/billing.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/photos.js"></script>
+  <script src="js/files.js"></script>
+  <script src="js/users.js"></script>
+  <script src="js/backup.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/firebase-sync.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

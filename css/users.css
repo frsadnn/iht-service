@@ -1,0 +1,82 @@
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 420px;
+  overflow-y: auto;
+  margin: 12px 0;
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-input);
+  border-radius: var(--radius-lg);
+  padding: 10px 12px;
+}
+
+.user-row-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-row-name {
+  font-size: var(--font-base);
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.user-row-email {
+  font-size: var(--font-sm);
+  color: #666;
+  margin-top: 2px;
+}
+
+.user-row-role {
+  background: var(--bg-primary);
+  border: 1px solid #444;
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 5px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.user-row-role:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.user-row-sched {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.user-row-sched select {
+  background: var(--bg-primary);
+  border: 1px solid #444;
+  color: var(--text-white);
+  border-radius: var(--radius-sm);
+  padding: 3px 6px;
+  font-size: var(--font-sm);
+}
+
+.btn-user-del {
+  background: none;
+  border: 1px solid var(--border-light);
+  color: #666;
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: var(--font-sm);
+}
+
+.btn-user-del:hover {
+  background: var(--accent);
+  color: var(--text-white);
+  border-color: var(--accent);
+}

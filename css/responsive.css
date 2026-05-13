@@ -1,0 +1,156 @@
+@media (max-width: 640px) {
+  input, textarea, select { font-size: 16px !important; }
+
+  html, body { height: 100%; }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header { flex-shrink: 0; }
+  .toolbar { flex-shrink: 0; }
+  .days-tabs { flex-shrink: 0; }
+  .content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 12px max(20px, calc(env(safe-area-inset-bottom) + 16px));
+  }
+
+  header {
+    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 14px 8px;
+    gap: 6px;
+  }
+
+  header h1 { font-size: 14px; }
+
+  .week-nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .week-label {
+    min-width: 0;
+    flex: 1;
+    font-size: 12px;
+    color: var(--text-white);
+    text-align: center;
+  }
+
+  .rev-box { font-size: 12px; }
+  .rev-box input { width: 38px; padding: 3px 4px; }
+
+  .toolbar {
+    padding: 6px 10px;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toolbar::-webkit-scrollbar { display: none; }
+
+  .toolbar button {
+    padding: 10px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: var(--radius-lg);
+  }
+
+  .days-tabs {
+    flex-wrap: nowrap;
+    padding: 8px 10px 0;
+    gap: 4px;
+  }
+
+  .day-tab {
+    flex: 1 1 0;
+    padding: 8px 2px;
+    font-size: 11px;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .day-header { gap: 8px; margin-bottom: 12px; }
+  .day-title { font-size: 14px; }
+  .holiday-label-input { width: 160px; font-size: 14px !important; }
+
+  .job-card { padding: 12px 12px 10px 12px; }
+  .job-card .job-num { width: 24px; height: 24px; font-size: 11px; top: 12px; left: 10px; }
+  .job-card .job-body { margin-left: 32px; margin-right: 0; }
+  .job-card .job-team { font-size: 13px; }
+  .job-card .job-customer { font-size: 13px; line-height: 1.4; }
+  .job-card .job-desc { font-size: 12px; }
+
+  .job-card .job-actions {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-left: 32px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .job-actions button {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-bg { align-items: flex-end; }
+
+  .modal {
+    border-radius: 16px 16px 0 0;
+    max-width: 100%;
+    max-height: 92vh;
+    padding: 20px 16px calc(32px + env(safe-area-inset-bottom));
+    margin: 0;
+  }
+
+  .modal h2 { font-size: 15px; margin-bottom: 14px; }
+  .form-row { margin-bottom: 14px; }
+  .form-row label { font-size: 13px; }
+  .modal-actions { gap: 10px; }
+  .modal-actions button { flex: 1; padding: 13px; font-size: 14px; border-radius: 10px; }
+
+  .member-chip { padding: 8px 14px; font-size: 14px; }
+  .manage-members { font-size: 13px; padding: 4px 0; }
+  .member-manage-row input { font-size: 15px !important; padding: 10px; }
+  .member-manage-row button { padding: 10px 14px; font-size: 13px; }
+  .member-remove-chip { padding: 5px 10px; font-size: 12px; }
+  .member-remove-chip button { font-size: 14px; width: 20px; height: 20px; }
+
+  .ib-toggle { padding: 12px 14px; font-size: 14px; }
+
+  .history-panel {
+    width: 100%;
+    right: -100%;
+    border-left: none;
+    border-top: 2px solid var(--border);
+    padding-top: max(16px, calc(env(safe-area-inset-top) + 12px));
+    padding-bottom: max(16px, calc(env(safe-area-inset-bottom) + 12px));
+  }
+
+  .history-panel.open { right: 0; }
+  .history-item { padding: 12px; font-size: 13px; }
+  .history-item .hi-week { font-size: 13px; }
+
+  .wa-preview { font-size: 11px; max-height: 280px; }
+
+  .comment-list { max-height: 200px; }
+  .comment-input-row textarea { font-size: 15px !important; }
+  .comment-actions { opacity: 1; }
+  .comment-actions button { padding: 4px 10px; font-size: 13px; }
+  .comment-text { padding-right: 72px; }
+
+  .summary-table th:nth-child(2),
+  .summary-table td:nth-child(2) { display: none; }
+  .summary-table th,
+  .summary-table td { padding: 8px 6px; font-size: 12px; }
+  .month-selector select { font-size: 15px !important; padding: 8px; }
+}

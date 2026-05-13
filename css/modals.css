@@ -1,0 +1,170 @@
+.modal-bg {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.modal-bg.open {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal h2 {
+  font-size: 15px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.form-row {
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  font-size: var(--font-base);
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 60px;
+  font-family: inherit;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.modal-actions button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--font-base);
+}
+
+.btn-confirm { background: var(--green); color: var(--text-white); }
+.btn-cancel { background: var(--text-muted); color: var(--text-white); }
+
+/* Summary table (internal billing) */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: var(--font-base);
+}
+
+.summary-table th {
+  background: var(--bg-input);
+  padding: 8px 10px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: var(--font-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.summary-table tr:hover td {
+  background: var(--bg-primary);
+}
+
+.summary-table .salesman-name {
+  color: var(--green-light);
+  font-weight: 700;
+}
+
+.summary-table .job-item {
+  margin-bottom: 4px;
+  color: #ccc;
+  font-size: 12px;
+}
+
+.summary-table .job-item .job-date {
+  color: #666;
+  font-size: var(--font-sm);
+  margin-left: 4px;
+}
+
+.summary-table .total-row td {
+  font-weight: 700;
+  color: var(--orange);
+  border-top: 2px solid var(--orange);
+  border-bottom: none;
+}
+
+.month-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.month-selector select {
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  font-size: var(--font-base);
+}
+
+.summary-empty {
+  color: var(--text-muted);
+  font-size: var(--font-base);
+  padding: 24px 0;
+  text-align: center;
+}

@@ -1,0 +1,128 @@
+/* WhatsApp preview */
+.wa-preview {
+  background: #000;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  color: var(--text-primary);
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 12px;
+}
+
+.copy-success {
+  color: var(--green);
+  font-size: 12px;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.copy-success.show {
+  opacity: 1;
+}
+
+/* Search */
+.search-result {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: background 0.15s;
+}
+
+.search-result:hover {
+  background: #1e3a5f;
+}
+
+.sr-date {
+  font-size: var(--font-sm);
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.sr-customer {
+  font-size: var(--font-base);
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.sr-team {
+  font-size: var(--font-sm);
+  color: var(--green-light);
+  margin-top: 2px;
+}
+
+.sr-desc {
+  font-size: var(--font-sm);
+  color: #888;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px;
+  font-size: var(--font-base);
+}
+
+/* Role-based permission CSS rules */
+.view-only .toolbar { display: none; }
+.view-only .rev-box input { pointer-events: none; border-color: transparent; background: transparent; }
+.view-only .btn-edit-job { display: none; }
+.view-only .holiday-toggle input,
+.view-only .holiday-toggle label[for] { pointer-events: none; }
+.view-only .chip-btn { display: none; }
+.view-only .leave-label { display: none; }
+.view-only .manage-members { display: none; }
+.view-only .btn-request { display: none; }
+.view-only .btn-requests { display: none; }
+
+/* Salesman */
+.role-salesman .btn-add { display: none; }
+.role-salesman .btn-edit-job { display: none; }
+.role-salesman .btn-del-week { display: none; }
+.role-salesman .btn-copy { display: none; }
+.role-salesman .btn-load { display: none; }
+.role-salesman .btn-backup { display: none; }
+.role-salesman .btn-pdf { display: none; }
+.role-salesman .btn-users { display: none; }
+.role-salesman .holiday-toggle input,
+.role-salesman .holiday-toggle label[for] { pointer-events: none; }
+.role-salesman .chip-btn { display: none; }
+.role-salesman .rev-box input { pointer-events: none; border-color: transparent; background: transparent; }
+.role-salesman .manage-members { display: none; }
+.role-salesman #ibToggle,
+.role-salesman #ibAmountRow { display: none; }
+.role-salesman .status-badge { cursor: default !important; }
+.role-salesman .btn-my-jobs { display: inline-flex; align-items: center; }
+
+/* Technician */
+.role-technician .btn-add { display: none; }
+.role-technician .btn-edit-job { display: none; }
+.role-technician .btn-del-week { display: none; }
+.role-technician .btn-copy { display: none; }
+.role-technician .btn-summary { display: none; }
+.role-technician .btn-load { display: none; }
+.role-technician .btn-backup { display: none; }
+.role-technician .btn-pdf { display: none; }
+.role-technician .btn-users { display: none; }
+.role-technician .holiday-toggle { display: none; }
+.role-technician .chip-btn { display: none; }
+.role-technician .rev-box { display: none; }
+.role-technician .manage-members { display: none; }
+.role-technician .ib-badge { display: none; }
+.role-technician .job-card.internal-billing { border-color: var(--border); border-left-width: 1px; }
+.role-technician .btn-request { display: none; }
+.role-technician .btn-requests { display: none; }
+
+/* Admin hides new request button (they assign, not create) */
+.role-admin .btn-request { display: none; }

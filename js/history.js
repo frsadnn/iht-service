@@ -38,7 +38,7 @@ function loadHistory() {
           <div style="margin-top:4px;display:flex;gap:4px">
             <button style="background:#2980b9;border:none;color:#fff;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer" 
               onclick="restoreHistory('${key}')">Load</button>
-            <button style="background:#c0392b;border:none;color:#fff;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer" 
+            <button style="background:#e74c3c;border:none;color:#fff;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer" 
               onclick="deleteHistory('${key}')">Delete</button>
           </div>`;
         list.appendChild(item);

@@ -143,10 +143,10 @@
 
 .status-badge.clickable { cursor: pointer; }
 .status-badge.clickable:hover { filter: brightness(1.2); }
-.status-badge.pending { background: #1e1e2e; color: #666; border: 1px solid var(--border-light); }
-.status-badge.in-progress { background: #2a1f00; color: var(--orange); border: 1px solid var(--orange); }
-.status-badge.completed { background: #0a1f0a; color: var(--green); border: 1px solid var(--green); }
-.status-badge.cancelled { background: #200a0a; color: var(--accent); border: 1px solid var(--accent); }
+.status-badge.pending { background: #1a1a1a; color: #666; border: 1px solid var(--border-light); }
+.status-badge.in-progress { background: #2a2000; color: var(--orange); border: 1px solid var(--orange); }
+.status-badge.completed { background: #0a200a; color: var(--green); border: 1px solid var(--green); }
+.status-badge.cancelled { background: #200a0a; color: var(--red); border: 1px solid var(--red); }
 
 /* Internal billing */
 .ib-badge {
@@ -182,7 +182,7 @@
 
 /* Special action buttons on job cards */
 .btn-comment {
-  background: #1a3a5c !important;
+  background: #1a2a3c !important;
   border: 1px solid var(--blue) !important;
   color: var(--blue-light) !important;
   position: relative;
@@ -211,7 +211,7 @@
 }
 
 .btn-photo {
-  background: #1a4a3a !important;
+  background: #0a2a1a !important;
   border: 1px solid var(--green) !important;
   color: var(--green-light) !important;
   position: relative;
@@ -240,7 +240,7 @@
 }
 
 .btn-job-change {
-  background: #4a3000 !important;
+  background: #2a2000 !important;
   border: 1px solid var(--orange) !important;
   color: var(--orange) !important;
 }

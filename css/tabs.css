@@ -13,9 +13,9 @@
   cursor: pointer;
   font-size: var(--font-base);
   font-weight: 600;
-  border: 1px solid #2a4a7f;
+  border: 1px solid var(--border-light);
   border-bottom: none;
-  background: #1e2d4a;
+  background: var(--bg-input);
   color: #ccc;
   transition: var(--transition);
 }

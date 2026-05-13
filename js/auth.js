@@ -111,7 +111,7 @@ function startEditName() {
   const input = document.createElement('input');
   input.type = 'text';
   input.value = current;
-  input.style.cssText = 'background:#0f3460;border:1px solid #e94560;color:#fff;font-size:12px;font-weight:600;padding:2px 6px;border-radius:4px;width:120px;outline:none';
+  input.style.cssText = 'background:#282828;border:1px solid #1db954;color:#fff;font-size:12px;font-weight:600;padding:2px 6px;border-radius:4px;width:120px;outline:none';
   span.replaceWith(input);
   input.focus();
   input.select();

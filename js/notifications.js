@@ -72,12 +72,12 @@ function findMyChatId() {
           msg.textContent = 'No recent message found — send a message to the bot then tap again.';
         }
       } else {
-        msg.style.color = '#e94560';
+        msg.style.color = '#e74c3c';
         msg.textContent = 'No messages found. Send any message to the bot first.';
       }
     })
     .catch(() => {
-      msg.style.color = '#e94560';
+      msg.style.color = '#e74c3c';
       msg.textContent = 'Connection failed. Please try again.';
     })
     .finally(() => {

@@ -41,7 +41,7 @@
 }
 
 .member-chip.assigned:not(.checked) {
-  background: #1a3a1a;
+  background: #0a2a0a;
   border-color: var(--green);
   color: var(--green-light);
 }

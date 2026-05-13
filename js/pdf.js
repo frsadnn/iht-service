@@ -33,7 +33,7 @@ function exportPDF() {
 
     if (y > 260) { doc.addPage(); y = 20; }
 
-    doc.setFillColor(15, 52, 96);
+    doc.setFillColor(29, 185, 84);
     doc.rect(margin, y - 4, pageWidth - margin * 2, 8, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(11);

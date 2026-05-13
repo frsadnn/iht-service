@@ -51,7 +51,7 @@
   color: var(--blue-light);
 }
 
-.btn-my-jobs:hover { background: #1a3a6a; color: var(--text-white); }
+.btn-my-jobs:hover { background: #2a2a2a; color: var(--text-white); }
 .btn-my-jobs.active { background: var(--blue); color: var(--text-white); border-color: var(--blue); }
 
 .btn-search { background: var(--blue-dark); color: var(--text-white); }

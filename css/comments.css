@@ -68,7 +68,7 @@
 
 .comment-edit-textarea {
   width: 100%;
-  background: #0a2540;
+  background: #1a1a1a;
   border: 1px solid var(--blue);
   color: var(--text-white);
   border-radius: var(--radius-md);

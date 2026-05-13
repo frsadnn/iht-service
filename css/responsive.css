@@ -66,8 +66,8 @@
     border-top: 1px solid var(--border);
   }
 
-  .header-logo { height: 20px; }
-  .header-subtitle { font-size: 9px; letter-spacing: 0.8px; }
+  .header-logo { height: 24px; }
+  .header-subtitle { display: none; }
 
   .user-info { gap: 5px; font-size: 11px; }
   .user-name { font-size: 11px; }

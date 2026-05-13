@@ -52,7 +52,8 @@ function renderTabs() {
     const dateObj = new Date(state.weekStart);
     dateObj.setDate(dateObj.getDate() + i);
     const dateNum = dateObj.getDate();
-    tab.textContent = `${name.slice(0, 3)} ${dateNum}`;
+    const month = dateObj.getMonth() + 1;
+    tab.textContent = `${name} ${dateNum}/${month}`;
     tab.onclick = () => switchDay(dk);
     container.appendChild(tab);
   });

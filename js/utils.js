@@ -18,12 +18,20 @@ function dayKey(weekStart, dayIndex) {
   return isoDate(d);
 }
 
+function getWeekNumber(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+}
+
 function formatWeekLabel(weekStartStr) {
   const [y, m, d] = weekStartStr.split('-').map(Number);
   const mon = new Date(y, m - 1, d);
   const sat = new Date(y, m - 1, d + 5);
   const fmt = dt => dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-  return `${fmt(mon)} – ${fmt(sat)}`;
+  const wk = getWeekNumber(mon);
+  return `${fmt(mon)} – ${fmt(sat)}  (Week ${wk})`;
 }
 
 function formatDateShort(dateStr) {

@@ -10,7 +10,7 @@ header {
 }
 
 .header-logo {
-  height: 28px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;

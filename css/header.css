@@ -10,10 +10,11 @@ header {
 }
 
 .header-logo {
-  height: 42px;
+  height: 54px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
+  mix-blend-mode: screen;
 }
 
 .week-nav {

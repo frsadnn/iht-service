@@ -23,35 +23,50 @@
   }
 
   .header-top {
-    padding-bottom: 6px;
-    gap: 6px;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 0;
   }
 
+  /* Row 1: brand left, Grundfos right */
+  .header-top::before { display: none; }
+
   .header-brand {
-    width: 100%;
     flex-direction: row;
     align-items: center;
     gap: 8px;
+    order: 1;
   }
 
   .header-badge {
-    width: 50px;
-    margin-left: auto;
+    width: 56px;
+    order: 2;
+    position: absolute;
+    right: 10px;
   }
 
+  .header-top {
+    position: relative;
+  }
+
+  /* Row 2: user info centered */
   .header-center {
-    gap: 6px;
-    flex-wrap: wrap;
+    order: 3;
+    gap: 8px;
     justify-content: center;
+    padding: 8px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
   }
 
+  /* Row 3: week nav */
   .header-bottom {
-    padding: 6px 0;
+    padding: 8px 0;
+    border-top: 1px solid var(--border);
   }
 
-  .header-logo { height: 18px; }
+  .header-logo { height: 20px; }
   .header-subtitle { font-size: 9px; letter-spacing: 0.8px; }
 
   .user-info { gap: 5px; font-size: 11px; }

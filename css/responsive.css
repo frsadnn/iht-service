@@ -18,8 +18,17 @@
   }
 
   header {
-    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 10px 8px 52px;
-    gap: 6px;
+    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 10px 0 52px;
+  }
+
+  .header-top {
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-bottom: 6px;
+  }
+
+  .header-bottom {
+    padding-bottom: 8px;
   }
 
   .header-logo { height: 22px; }

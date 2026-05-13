@@ -22,13 +22,17 @@
   }
 
   .header-top {
-    gap: 8px;
-    flex-wrap: wrap;
     padding-bottom: 6px;
   }
 
+  .header-mid {
+    gap: 8px;
+    padding: 6px 0;
+    flex-wrap: wrap;
+  }
+
   .header-bottom {
-    padding-bottom: 8px;
+    padding: 6px 0;
   }
 
   .header-logo { height: 22px; }

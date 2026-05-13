@@ -10,16 +10,25 @@ header {
 .header-top {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.header-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
 }
 
 .header-bottom {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
 }
 
 .header-brand {

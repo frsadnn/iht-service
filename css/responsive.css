@@ -37,22 +37,28 @@
     padding-bottom: 0;
   }
 
-  /* Row 1: logos centered */
+  /* Row 1: both logos side by side, centered */
+  .header-top > .header-brand,
+  .header-top > .header-badge {
+    order: 1;
+  }
+
   .header-brand {
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    order: 1;
+    flex: none;
+    width: auto;
   }
 
   .header-badge {
     width: 56px;
-    order: 2;
+    flex: none;
   }
 
-  /* Row 2: user info on its own line */
+  /* Row 2: user info full width below */
   .header-center {
-    order: 3;
+    order: 2;
     width: 100%;
     gap: 8px;
     justify-content: center;

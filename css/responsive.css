@@ -29,29 +29,28 @@
     padding-bottom: 0;
   }
 
-  /* Row 1: brand left, Grundfos right */
-  .header-top::before { display: none; }
+  .header-top {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding-bottom: 0;
+  }
 
+  /* Row 1: logos centered */
   .header-brand {
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
 
   .header-badge {
     width: 56px;
   }
 
-  .header-top {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-  }
-
-  /* Row 2: user info centered */
+  /* Row 2: user info on its own line */
   .header-center {
-    order: 3;
+    width: 100%;
     gap: 8px;
     justify-content: center;
     padding: 8px 0;

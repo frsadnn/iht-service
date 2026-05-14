@@ -90,7 +90,7 @@
   font-size: var(--font-base);
 }
 
-.btn-confirm { background: var(--green); color: var(--text-white); }
+.btn-confirm { background: #1D405C; color: #fff; }
 .btn-cancel { background: var(--text-muted); color: var(--text-white); }
 
 /* Summary table (internal billing) */

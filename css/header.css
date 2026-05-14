@@ -64,11 +64,12 @@ header {
 }
 
 .header-badge {
-  width: 102px;
-  height: auto;
+  width: 120px;
+  height: 100%;
   object-fit: contain;
   border-radius: 4px;
   flex-shrink: 0;
+  align-self: stretch;
 }
 
 .week-nav {

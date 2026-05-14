@@ -132,8 +132,8 @@
 
 /* Primary action stands out */
 .sidebar-btn.btn-add {
-  background: var(--green);
-  color: var(--text-white);
+  background: #1D405C;
+  color: #fff;
   font-weight: 700;
   justify-content: center;
   font-size: var(--font-md);
@@ -142,7 +142,7 @@
 }
 
 .sidebar-btn.btn-add:hover {
-  background: var(--green-dark);
+  background: #163348;
 }
 
 /* Delete week is danger */

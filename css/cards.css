@@ -75,7 +75,7 @@
 }
 
 .job-card .job-team {
-  color: var(--green-light);
+  color: #1D405C;
   font-weight: 700;
   font-size: var(--font-base);
   margin-bottom: 4px;

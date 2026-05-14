@@ -182,14 +182,14 @@
 
 /* Special action buttons on job cards */
 .btn-comment {
-  background: #1a2a3c !important;
-  border: 1px solid var(--blue) !important;
-  color: var(--blue-light) !important;
+  background: var(--bg-input) !important;
+  border: none !important;
+  color: var(--text-secondary) !important;
   position: relative;
 }
 
 .btn-comment:hover {
-  background: var(--blue) !important;
+  background: var(--accent) !important;
   color: var(--text-white) !important;
 }
 
@@ -211,14 +211,14 @@
 }
 
 .btn-photo {
-  background: #e8f5e9 !important;
-  border: 1px solid var(--green) !important;
-  color: var(--green-light) !important;
+  background: var(--bg-input) !important;
+  border: none !important;
+  color: var(--text-secondary) !important;
   position: relative;
 }
 
 .btn-photo:hover {
-  background: var(--green) !important;
+  background: var(--accent) !important;
   color: var(--text-white) !important;
 }
 

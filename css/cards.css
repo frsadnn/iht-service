@@ -143,10 +143,10 @@
 
 .status-badge.clickable { cursor: pointer; }
 .status-badge.clickable:hover { filter: brightness(1.2); }
-.status-badge.pending { background: #1a1a1a; color: #666; border: 1px solid var(--border-light); }
-.status-badge.in-progress { background: #2a2000; color: var(--orange); border: 1px solid var(--orange); }
-.status-badge.completed { background: #0a200a; color: var(--green); border: 1px solid var(--green); }
-.status-badge.cancelled { background: #200a0a; color: var(--red); border: 1px solid var(--red); }
+.status-badge.pending { background: #f0f0f0; color: #777; border: 1px solid var(--border-light); }
+.status-badge.in-progress { background: #fff8e6; color: var(--orange); border: 1px solid var(--orange); }
+.status-badge.completed { background: #e8f5e9; color: var(--green-dark); border: 1px solid var(--green); }
+.status-badge.cancelled { background: #fce8e6; color: var(--red); border: 1px solid var(--red); }
 
 /* Internal billing */
 .ib-badge {
@@ -211,7 +211,7 @@
 }
 
 .btn-photo {
-  background: #0a2a1a !important;
+  background: #e8f5e9 !important;
   border: 1px solid var(--green) !important;
   color: var(--green-light) !important;
   position: relative;

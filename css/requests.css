@@ -55,7 +55,7 @@
 
 .req-sched-badge {
   display: inline-block;
-  background: #0a200a;
+  background: #e8f5e9;
   color: var(--green);
   border: 1px solid var(--green);
   border-radius: var(--radius-sm);
@@ -127,7 +127,7 @@
 }
 
 .req-filter-btn:hover:not(.active) {
-  background: #2a2a2a;
+  background: #f0f0f0;
   color: var(--text-white);
 }
 

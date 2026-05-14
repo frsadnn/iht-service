@@ -55,7 +55,7 @@ input, textarea, select {
 }
 
 .toast {
-  background: #282828;
+  background: #333333;
   color: #fff;
   border-left: 4px solid var(--accent);
   border-radius: 6px;

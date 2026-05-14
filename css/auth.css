@@ -33,7 +33,7 @@
 }
 
 .auth-card p {
-  color: #888;
+  color: var(--text-muted);
   font-size: var(--font-base);
   margin-bottom: 20px;
 }

@@ -41,7 +41,7 @@
 }
 
 .member-chip.assigned:not(.checked) {
-  background: #0a2a0a;
+  background: #e8f5e9;
   border-color: var(--green);
   color: var(--green-light);
 }
@@ -152,12 +152,12 @@
 }
 
 .leave-chip:hover {
-  border-color: #888;
+  border-color: var(--border-light);
 }
 
 .leave-chip .chip-name {
   padding: 5px 9px;
-  color: #ccc;
+  color: var(--text-secondary);
 }
 
 .leave-chip .chip-btn {

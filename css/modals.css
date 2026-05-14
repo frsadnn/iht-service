@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 100;
   align-items: center;
   justify-content: center;
@@ -129,7 +129,7 @@
 
 .summary-table .job-item {
   margin-bottom: 4px;
-  color: #ccc;
+  color: var(--text-secondary);
   font-size: 12px;
 }
 

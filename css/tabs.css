@@ -22,7 +22,7 @@
 }
 
 .day-tab:hover {
-  color: var(--text-white);
+  color: var(--text-primary);
   background: var(--bg-input);
 }
 
@@ -46,7 +46,7 @@
 }
 
 .day-tab.active.has-jobs {
-  color: var(--text-white);
+  color: var(--accent);
 }
 
 .day-tab.holiday {

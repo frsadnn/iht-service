@@ -155,9 +155,8 @@
   color: var(--red);
 }
 
-/* Summary has orange tint */
 .sidebar-btn.btn-summary {
-  color: var(--orange);
+  color: #ccc;
 }
 
 /* Request count badge inside sidebar */

@@ -1,10 +1,18 @@
 header {
-  background: var(--bg-secondary);
+  background: #121212;
   padding: 0 20px 0 60px;
   padding-top: max(12px, calc(env(safe-area-inset-top) + 8px));
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid #282828;
+  color: #e0e0e0;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b3b3b3;
+  --text-muted: #888;
+  --text-white: #fff;
+  --bg-input: #282828;
+  --border-light: #444;
+  --border: #333;
 }
 
 .header-top {
@@ -12,6 +20,7 @@ header {
   align-items: center;
   gap: 16px;
   padding-bottom: 10px;
+  border-bottom: 1px solid #333;
 }
 
 .header-bottom {
@@ -19,7 +28,6 @@ header {
   align-items: center;
   justify-content: center;
   padding: 8px 0;
-  border-top: 1px solid var(--border);
 }
 
 .header-brand {
@@ -34,7 +42,7 @@ header {
   height: 32px;
   width: auto;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
 }
 
 .header-subtitle {

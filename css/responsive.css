@@ -63,14 +63,13 @@
     gap: 8px;
     justify-content: center;
     padding: 8px 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid #333;
     margin-top: 8px;
   }
 
   /* Row 3: week nav */
   .header-bottom {
     padding: 8px 0;
-    border-top: 1px solid var(--border);
   }
 
   .header-logo { height: 24px; }

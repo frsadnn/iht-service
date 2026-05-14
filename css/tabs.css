@@ -42,7 +42,8 @@
 }
 
 .day-tab.has-jobs {
-  color: var(--green);
+  color: #1D405C;
+  font-weight: 700;
 }
 
 .day-tab.active.has-jobs {

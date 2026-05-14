@@ -32,7 +32,7 @@
 .holiday-label-input {
   background: var(--bg-input);
   border: 1px solid var(--text-muted);
-  color: var(--text-white);
+  color: var(--text-primary);
   border-radius: var(--radius-sm);
   padding: 4px 8px;
   font-size: var(--font-base);

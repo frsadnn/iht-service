@@ -43,7 +43,7 @@
 .member-chip.assigned:not(.checked) {
   background: #e8f5e9;
   border-color: var(--green);
-  color: var(--green-light);
+  color: var(--green-dark);
 }
 
 .manage-members {

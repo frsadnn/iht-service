@@ -202,7 +202,7 @@ header {
 
 .sync-dot.synced { background: var(--green); }
 .sync-dot.syncing { background: var(--orange); animation: pulse 0.8s infinite; }
-.sync-dot.offline { background: var(--accent); }
+.sync-dot.offline { background: var(--red); }
 
 .view-only-badge {
   display: none;

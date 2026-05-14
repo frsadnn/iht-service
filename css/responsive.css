@@ -23,13 +23,6 @@
   }
 
   .header-top {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding-bottom: 0;
-  }
-
-  .header-top {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;

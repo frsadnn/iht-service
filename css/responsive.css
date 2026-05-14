@@ -44,8 +44,15 @@
     width: auto;
   }
 
+  .header-logo {
+    height: 24px;
+    width: auto;
+  }
+
   .header-badge {
     width: 56px;
+    height: auto;
+    align-self: center;
     flex: none;
   }
 
@@ -63,9 +70,9 @@
   /* Row 3: week nav */
   .header-bottom {
     padding: 8px 0;
+    border-top: 1px solid #333;
   }
 
-  .header-logo { height: 24px; }
   .header-subtitle { display: none; }
 
   .user-info { gap: 5px; font-size: 11px; }

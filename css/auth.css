@@ -26,6 +26,29 @@
   text-align: center;
 }
 
+.auth-brand {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 10px;
+}
+
+.auth-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  margin-bottom: 12px;
+}
+
+.auth-brand h2 {
+  color: var(--accent);
+  font-size: var(--font-xl);
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 .auth-card h2 {
   color: var(--accent);
   font-size: var(--font-xl);
@@ -42,7 +65,7 @@
   width: 100%;
   background: var(--bg-input);
   border: 1px solid var(--border-light);
-  color: var(--text-white);
+  color: var(--text-primary);
   border-radius: var(--radius-lg);
   padding: 10px 14px;
   font-size: 15px;

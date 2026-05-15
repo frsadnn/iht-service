@@ -1,3 +1,59 @@
+/* Week navigation — sits above day tabs on white background */
+.week-nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 20px 12px;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.week-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.week-nav-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--font-base);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.week-nav-btn:hover {
+  background: var(--bg-input);
+  border-color: var(--border-light);
+}
+
+.week-nav-today {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-white);
+}
+
+.week-nav-today:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--text-white);
+}
+
+.week-label {
+  font-size: var(--font-base);
+  color: var(--text-primary);
+  min-width: 160px;
+  text-align: center;
+  font-weight: 600;
+  padding: 0 4px;
+}
+
 .days-tabs {
   display: flex;
   gap: 6px;

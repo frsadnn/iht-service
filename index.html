@@ -94,15 +94,17 @@
       <img src="assets/grundfos.png" alt="Grundfos Authorised Service Partner" class="header-badge">
     </div>
 
-    <div class="header-bottom">
-      <div class="week-nav">
-        <button onclick="navigateWeek(-1)">‹ Prev</button>
-        <button onclick="goToToday()" style="background:var(--accent);color:#fff">Today</button>
-        <span id="weekLabel" class="week-label"></span>
-        <button onclick="navigateWeek(1)">Next ›</button>
-      </div>
-    </div>
   </header>
+
+  <!-- ═══════════ WEEK NAVIGATION ═══════════ -->
+  <div class="week-nav-bar">
+    <div class="week-nav">
+      <button type="button" class="week-nav-btn" onclick="navigateWeek(-1)">‹ Prev</button>
+      <button type="button" class="week-nav-btn week-nav-today" onclick="goToToday()">Today</button>
+      <span id="weekLabel" class="week-label"></span>
+      <button type="button" class="week-nav-btn" onclick="navigateWeek(1)">Next ›</button>
+    </div>
+  </div>
 
   <!-- ═══════════ SIDEBAR MENU ═══════════ -->
   <button id="menuToggle" class="menu-toggle" onclick="toggleSidebar()">☰</button>

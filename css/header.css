@@ -19,15 +19,7 @@ header {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #333;
-}
-
-.header-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 0;
+  padding-bottom: 12px;
 }
 
 .header-brand {
@@ -70,34 +62,6 @@ header {
   border-radius: 4px;
   flex-shrink: 0;
   align-self: stretch;
-}
-
-.week-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.week-nav button {
-  background: var(--bg-input);
-  border: none;
-  color: var(--text-primary);
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: var(--font-base);
-}
-
-.week-nav button:hover {
-  background: var(--accent);
-}
-
-.week-label {
-  font-size: var(--font-base);
-  color: var(--text-primary);
-  min-width: 160px;
-  text-align: center;
-  font-weight: 600;
 }
 
 .rev-box {

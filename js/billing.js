@@ -34,15 +34,19 @@ function renderBillingSummary() {
 
   let total = 0;
   let html = `<table class="summary-table">
-    <tr><th>Date</th><th>Customer</th><th>Team</th><th>Amount</th><th>Status</th></tr>`;
+    <tr><th>Date</th><th>Customer</th><th>Salesman</th><th>Team</th><th>Amount</th><th>Status</th></tr>`;
 
   items.sort((a, b) => a.dk.localeCompare(b.dk));
   items.forEach(({ dk, job }) => {
     const amt = parseFloat(job.ibAmount) || 0;
     total += amt;
+    const salesmanCell = job.salesman
+      ? `<span class="salesman-name">${escapeHtml(job.salesman)}</span>`
+      : '—';
     html += `<tr>
       <td>${formatDateShort(dk)}</td>
       <td>${escapeHtml(job.customer || '')}</td>
+      <td>${salesmanCell}</td>
       <td>${escapeHtml(job.team || '')}</td>
       <td>RM ${amt.toFixed(2)}</td>
       <td><span class="status-badge ${job.status || 'pending'}">● ${STATUS_LABELS[job.status || 'pending']}</span></td>
@@ -50,7 +54,7 @@ function renderBillingSummary() {
   });
 
   html += `<tr class="total-row">
-    <td colspan="3">Total</td>
+    <td colspan="4">Total</td>
     <td>RM ${total.toFixed(2)}</td>
     <td>${items.length} jobs</td>
   </tr></table>`;

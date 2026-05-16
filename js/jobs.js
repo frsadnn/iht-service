@@ -125,7 +125,9 @@ function cycleJobStatus(dk, idx) {
 
 function renderJobCard(job, idx, dk) {
   const teamHtml = job.team ? escapeHtml(job.team) : '<em style="color:#666">No team</em>';
-  const contactHtml = job.contact ? ` — <span class="contact">${escapeHtml(job.contact)}</span>` : '';
+  const contactLineHtml = job.contact
+    ? `<div class="job-contact-line"><span class="contact">${escapeHtml(job.contact)}</span></div>`
+    : '';
   const ibBadge = job.internalBilling ? '<span class="ib-badge">IB</span>' : '';
   const ibClass = job.internalBilling ? ' internal-billing' : '';
   const status = job.status || 'pending';
@@ -137,13 +139,27 @@ function renderJobCard(job, idx, dk) {
   const photoCount = (job.photos || []).length;
   const photoBadge = photoCount > 0 ? `<span class="photo-badge">${photoCount}</span>` : '';
 
+  const customerName = job.customer ? escapeHtml(job.customer) : '';
+  const customerStrong = customerName ? `<strong class="job-customer-name">${customerName}</strong>` : '';
+  const mainInner = customerStrong;
+  const tailParts = [];
+  if (job.address) {
+    tailParts.push(`<span class="job-address-inline">📍 ${escapeHtml(job.address)}</span>`);
+  }
+  if (job.salesman) {
+    tailParts.push(`<span class="job-salesman-inline">(${escapeHtml(job.salesman)})</span>`);
+  }
+  const tailHtml = tailParts.length ? `<span class="job-customer-tail">${tailParts.join('')}</span>` : '';
+  const customerRowHtml = (mainInner.trim() || tailHtml)
+    ? `<div class="job-customer-row"><span class="job-customer-main">${mainInner}</span>${tailHtml}</div>`
+    : '';
+
   return `<div class="job-card${ibClass}">
     <div class="job-num">${idx + 1}</div>
     <div class="job-body">
       <div class="job-team">${teamHtml}${ibBadge}</div>
-      <div class="job-customer">${escapeHtml(job.customer || '')}${contactHtml}</div>
-      ${job.address ? `<div class="job-desc">📍 ${escapeHtml(job.address)}</div>` : ''}
-      ${job.salesman ? `<div class="job-desc">(${escapeHtml(job.salesman)})</div>` : ''}
+      ${customerRowHtml}
+      ${contactLineHtml}
       ${job.desc ? `<div class="job-desc">${escapeHtml(job.desc)}</div>` : ''}
       <span class="status-badge ${status}${clickable}" ${statusClick}>● ${statusLabel}</span>
     </div>

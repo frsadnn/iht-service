@@ -108,11 +108,11 @@
   background: var(--bg-input);
   border: none;
   color: var(--text-secondary);
-  width: 26px;
-  height: 26px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .job-actions button:hover {

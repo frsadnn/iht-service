@@ -141,17 +141,15 @@ function renderJobCard(job, idx, dk) {
 
   const customerName = job.customer ? escapeHtml(job.customer) : '';
   const customerStrong = customerName ? `<strong class="job-customer-name">${customerName}</strong>` : '';
-  const mainInner = customerStrong;
-  const tailParts = [];
-  if (job.address) {
-    tailParts.push(`<span class="job-address-inline">📍 ${escapeHtml(job.address)}</span>`);
-  }
-  if (job.salesman) {
-    tailParts.push(`<span class="job-salesman-inline">(${escapeHtml(job.salesman)})</span>`);
-  }
-  const tailHtml = tailParts.length ? `<span class="job-customer-tail">${tailParts.join('')}</span>` : '';
-  const customerRowHtml = (mainInner.trim() || tailHtml)
-    ? `<div class="job-customer-row"><span class="job-customer-main">${mainInner}</span>${tailHtml}</div>`
+  const addrSpan = job.address
+    ? `<span class="job-address-inline">📍 ${escapeHtml(job.address)}</span>`
+    : '';
+  const salesSpan = job.salesman
+    ? `<span class="job-salesman-inline">(${escapeHtml(job.salesman)})</span>`
+    : '';
+  const rowPieces = [customerStrong, addrSpan, salesSpan].filter(Boolean);
+  const customerRowHtml = rowPieces.length
+    ? `<div class="job-customer-row">${rowPieces.join('')}</div>`
     : '';
 
   return `<div class="job-card${ibClass}">

@@ -111,6 +111,13 @@
   margin-left: 30px;
 }
 
+/* Reserve width for absolutely positioned action buttons (desktop) */
+@media (min-width: 641px) {
+  .job-card .job-body {
+    padding-right: calc(8 * 36px + 7 * 4px + 20px);
+  }
+}
+
 .job-card .job-team {
   color: #1D405C;
   font-weight: 700;
@@ -122,15 +129,11 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 6px 12px;
+  column-gap: 18px;
+  row-gap: 6px;
   font-size: var(--font-base);
   color: var(--text-primary);
   margin-bottom: 2px;
-}
-
-.job-card .job-customer-main {
-  flex: 1 1 auto;
-  min-width: 0;
 }
 
 .job-card .job-customer-name {
@@ -138,17 +141,10 @@
   color: var(--text-primary);
 }
 
-.job-card .job-customer-tail {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: flex-end;
-  gap: 8px 14px;
-  margin-left: auto;
-  text-align: right;
+.job-card .job-customer-row .job-address-inline,
+.job-card .job-customer-row .job-salesman-inline {
   color: var(--text-secondary);
   font-weight: 500;
-  max-width: 100%;
 }
 
 .job-card .job-contact-line {

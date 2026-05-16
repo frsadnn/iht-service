@@ -15,16 +15,25 @@
 }
 
 .day-add-job-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: none;
   background: var(--accent);
   color: var(--text-white);
   font-weight: 700;
   font-size: var(--font-md);
+  line-height: 1.25;
   padding: 12px 18px;
   border-radius: var(--radius-lg);
   font-family: inherit;
   transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .day-add-job-btn:hover {

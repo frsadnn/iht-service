@@ -120,6 +120,7 @@
 
 .summary-table .summary-desc-cell {
   max-width: 220px;
+  min-width: 120px;
 }
 
 .summary-table .summary-desc {

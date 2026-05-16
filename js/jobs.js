@@ -144,12 +144,12 @@ function renderJobCard(job, idx, dk) {
   const addrSpan = job.address
     ? `<span class="job-address-inline">📍 ${escapeHtml(job.address)}</span>`
     : '';
-  const salesSpan = job.salesman
-    ? `<span class="job-salesman-inline">(${escapeHtml(job.salesman)})</span>`
-    : '';
-  const rowPieces = [customerStrong, addrSpan, salesSpan].filter(Boolean);
+  const rowPieces = [customerStrong, addrSpan].filter(Boolean);
   const customerRowHtml = rowPieces.length
     ? `<div class="job-customer-row">${rowPieces.join('')}</div>`
+    : '';
+  const salesCornerHtml = job.salesman
+    ? `<div class="job-salesman-corner">(${escapeHtml(job.salesman)})</div>`
     : '';
 
   return `<div class="job-card${ibClass}">
@@ -171,6 +171,7 @@ function renderJobCard(job, idx, dk) {
       <button class="btn-edit-job" onclick="moveJobDown('${dk}',${idx})" title="Move Down">▼</button>
       <button class="btn-edit-job" onclick="deleteJob('${dk}',${idx})" title="Delete">🗑️</button>
     </div>
+    ${salesCornerHtml}
   </div>`;
 }
 

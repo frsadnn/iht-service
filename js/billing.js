@@ -34,7 +34,7 @@ function renderBillingSummary() {
 
   let total = 0;
   let html = `<table class="summary-table">
-    <tr><th>Date</th><th>Customer</th><th>Salesman</th><th>Team</th><th>Amount</th><th>Status</th></tr>`;
+    <tr><th>Date</th><th>Customer</th><th>Salesman</th><th>Team</th><th>Description</th><th>Amount</th><th>Status</th></tr>`;
 
   items.sort((a, b) => a.dk.localeCompare(b.dk));
   items.forEach(({ dk, job }) => {
@@ -43,18 +43,23 @@ function renderBillingSummary() {
     const salesmanCell = job.salesman
       ? `<span class="salesman-name">${escapeHtml(job.salesman)}</span>`
       : '—';
+    const descText = (job.desc || '').trim();
+    const descCell = descText
+      ? `<span class="summary-desc">${escapeHtml(descText)}</span>`
+      : '—';
     html += `<tr>
-      <td>${formatDateShort(dk)}</td>
+      <td>${formatDateDDMMYY(dk)}</td>
       <td>${escapeHtml(job.customer || '')}</td>
       <td>${salesmanCell}</td>
       <td>${escapeHtml(job.team || '')}</td>
+      <td class="summary-desc-cell">${descCell}</td>
       <td>RM ${amt.toFixed(2)}</td>
       <td><span class="status-badge ${job.status || 'pending'}">● ${STATUS_LABELS[job.status || 'pending']}</span></td>
     </tr>`;
   });
 
   html += `<tr class="total-row">
-    <td colspan="4">Total</td>
+    <td colspan="5">Total</td>
     <td>RM ${total.toFixed(2)}</td>
     <td>${items.length} jobs</td>
   </tr></table>`;

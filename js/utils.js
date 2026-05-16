@@ -45,6 +45,16 @@ function formatDateShort(dateStr) {
   return dt.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
 }
 
+/** dd/mm/yy from ISO yyyy-mm-dd */
+function formatDateDDMMYY(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  if (!y || !m || !d) return dateStr || '';
+  const dd = String(d).padStart(2, '0');
+  const mm = String(m).padStart(2, '0');
+  const yy = String(y % 100).padStart(2, '0');
+  return `${dd}/${mm}/${yy}`;
+}
+
 function formatTimestamp(ts) {
   if (!ts) return '';
   const d = new Date(ts);

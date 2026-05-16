@@ -122,10 +122,6 @@
       <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
     </div>
 
-    <div class="sidebar-section">
-      <button class="sidebar-btn btn-add" onclick="openAddJob(); toggleSidebar()">+ Add Job</button>
-    </div>
-
     <div class="sidebar-group-label">Schedule</div>
     <div class="sidebar-section">
       <button class="sidebar-btn btn-my-jobs" onclick="toggleMyJobs(this)">👤 My Jobs</button>
@@ -164,7 +160,12 @@
   <div id="daysTabs" class="days-tabs"></div>
 
   <!-- ═══════════ DAY CONTENT ═══════════ -->
-  <div id="dayContent" class="content"></div>
+  <div class="day-view">
+    <div id="dayContent" class="content"></div>
+    <div class="day-footer-actions">
+      <button type="button" class="day-add-job-btn" onclick="openAddJob()">+ Add Job</button>
+    </div>
+  </div>
 
   <!-- ═══════════ HISTORY PANEL ═══════════ -->
   <div id="historyPanel" class="history-panel">

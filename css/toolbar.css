@@ -132,21 +132,6 @@
   color: #fff;
 }
 
-/* Primary action stands out */
-.sidebar-btn.btn-add {
-  background: #1D405C;
-  color: #fff;
-  font-weight: 700;
-  justify-content: center;
-  font-size: var(--font-md);
-  padding: 12px;
-  border-radius: var(--radius-lg);
-}
-
-.sidebar-btn.btn-add:hover {
-  background: #163348;
-}
-
 /* Delete week is danger */
 .sidebar-btn.btn-del-week {
   color: var(--red);
@@ -185,14 +170,14 @@
 }
 
 /* Role-based hiding in sidebar */
-.role-salesman .sidebar-btn.btn-add { display: none; }
+.role-salesman .day-add-job-btn { display: none; }
 .role-salesman .sidebar-btn.btn-del-week { display: none; }
 .role-salesman .sidebar-btn.btn-copy { display: none; }
 .role-salesman .sidebar-btn.btn-backup { display: none; }
 .role-salesman .sidebar-btn.btn-pdf { display: none; }
 .role-salesman .sidebar-btn.btn-users { display: none; }
 
-.role-technician .sidebar-btn.btn-add { display: none; }
+.role-technician .day-add-job-btn { display: none; }
 .role-technician .sidebar-btn.btn-del-week { display: none; }
 .role-technician .sidebar-btn.btn-copy { display: none; }
 .role-technician .sidebar-btn.btn-summary { display: none; }

@@ -84,6 +84,7 @@
 .view-only .manage-members { display: none; }
 .view-only .btn-request { display: none; }
 .view-only .btn-requests { display: none; }
+.view-only .day-add-job-btn { display: none; }
 
 /* Salesman */
 .role-salesman .btn-edit-job { display: none; }

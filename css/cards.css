@@ -1,6 +1,34 @@
+.day-view {
+  max-width: 900px;
+}
+
 .content {
   padding: 20px;
   max-width: 900px;
+}
+
+.day-footer-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px 24px;
+}
+
+.day-add-job-btn {
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: var(--font-md);
+  padding: 12px 18px;
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.day-add-job-btn:hover {
+  background: var(--accent-hover);
 }
 
 .day-header {

@@ -19,7 +19,7 @@
   }
 
   header {
-    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 10px 0 48px;
+    padding: max(8px, calc(env(safe-area-inset-top) + 4px)) 10px 0 10px;
     overflow: visible;
   }
 
@@ -103,6 +103,13 @@
 
   .week-nav-bar {
     padding: 10px 10px 8px;
+    gap: 8px;
+  }
+
+  .menu-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
   }
 
   .user-info { gap: 5px; font-size: 11px; }
@@ -110,14 +117,6 @@
   .role-badge { font-size: 9px; padding: 1px 5px; }
   .sync-status { font-size: 10px; }
   .sync-dot { width: 6px; height: 6px; }
-
-  .menu-toggle {
-    top: max(10px, calc(env(safe-area-inset-top) + 6px));
-    left: 8px;
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
 
   .week-nav {
     width: 100%;

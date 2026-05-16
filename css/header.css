@@ -1,6 +1,6 @@
 header {
   background: #121212;
-  padding: 0 20px 0 60px;
+  padding: 0 20px 0 20px;
   padding-top: max(12px, calc(env(safe-area-inset-top) + 8px));
   display: flex;
   flex-direction: column;

@@ -105,6 +105,7 @@
 
   <!-- ═══════════ WEEK NAVIGATION ═══════════ -->
   <div class="week-nav-bar">
+    <button id="menuToggle" class="menu-toggle" onclick="toggleSidebar()">☰</button>
     <div class="week-nav">
       <button type="button" class="week-nav-btn" onclick="navigateWeek(-1)">‹ Prev</button>
       <button type="button" class="week-nav-btn week-nav-today" onclick="goToToday()">Today</button>
@@ -114,7 +115,6 @@
   </div>
 
   <!-- ═══════════ SIDEBAR MENU ═══════════ -->
-  <button id="menuToggle" class="menu-toggle" onclick="toggleSidebar()">☰</button>
   <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-header">

@@ -18,7 +18,7 @@
 
 .auth-card {
   background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 12px;
   padding: 32px 28px;
   width: 100%;
@@ -36,7 +36,7 @@
   width: 100%;
   margin-bottom: 12px;
   padding: 8px 10px;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border: 1px solid #1a1a1a;
   border-radius: 6px;
   box-sizing: border-box;
@@ -51,7 +51,7 @@
 }
 
 .auth-brand h2 {
-  color: var(--accent);
+  color: var(--text-white);
   font-size: var(--font-xl);
   margin-bottom: 0;
   font-weight: 700;
@@ -59,13 +59,13 @@
 }
 
 .auth-card h2 {
-  color: var(--accent);
+  color: var(--text-white);
   font-size: var(--font-xl);
   margin-bottom: 6px;
 }
 
 .auth-card p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.82);
   font-size: var(--font-base);
   margin-bottom: 20px;
 }
@@ -89,7 +89,7 @@
 }
 
 .auth-error {
-  color: var(--accent);
+  color: #ffb3b0;
   font-size: 12px;
   min-height: 16px;
   margin-bottom: 10px;
@@ -97,9 +97,9 @@
 
 .auth-btn {
   width: 100%;
-  background: var(--accent);
+  background: var(--bg-primary);
   border: none;
-  color: var(--text-white);
+  color: var(--accent);
   border-radius: var(--radius-lg);
   padding: 11px;
   font-size: var(--font-md);
@@ -109,7 +109,8 @@
 }
 
 .auth-btn:hover {
-  background: var(--accent-hover);
+  background: var(--bg-input);
+  color: var(--accent-hover);
 }
 
 .auth-link-row {
@@ -119,7 +120,7 @@
 }
 
 .auth-view-link {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.88);
   font-size: var(--font-base);
   cursor: pointer;
   text-decoration: none;
@@ -127,4 +128,5 @@
 
 .auth-view-link:hover {
   color: var(--text-white);
+  text-decoration: underline;
 }

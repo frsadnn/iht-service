@@ -47,7 +47,7 @@
 }
 
 .job-card {
-  background: var(--bg-secondary);
+  background: var(--bg-panel);
   border: 1px solid var(--accent);
   border-radius: var(--radius-lg);
   padding: 12px 16px;

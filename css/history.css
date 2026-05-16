@@ -4,7 +4,7 @@
   top: 0;
   bottom: 0;
   width: 300px;
-  background: var(--bg-secondary);
+  background: var(--bg-panel);
   border-left: 2px solid var(--border);
   z-index: 150;
   transition: right 0.3s;

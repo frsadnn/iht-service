@@ -1,5 +1,5 @@
 .request-item {
-  background: var(--bg-secondary);
+  background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 12px 14px;

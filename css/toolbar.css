@@ -5,7 +5,7 @@
   left: auto;
   flex-shrink: 0;
   z-index: 201;
-  background: var(--bg-secondary);
+  background: var(--bg-panel);
   border: 1px solid var(--border);
   color: var(--text-primary);
   width: 38px;

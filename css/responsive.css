@@ -61,17 +61,29 @@
     white-space: nowrap;
   }
 
-  .header-badge {
+  .header-badge-wrap {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
     grid-column: 2;
     grid-row: 1;
+    align-self: stretch;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .header-badge {
+    grid-column: unset;
+    grid-row: unset;
     width: 72px;
     height: 100%;
+    min-height: 0;
     max-height: none;
-    justify-self: end;
     align-self: stretch;
     object-fit: contain;
-    object-position: center right;
+    object-position: center center;
     margin-left: 0;
+    justify-self: unset;
   }
 
   .header-center {

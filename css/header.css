@@ -55,6 +55,11 @@ header {
   gap: 14px;
 }
 
+/* Wrapper: desktop uses contents so img stays flex child; mobile grid targets wrap */
+.header-badge-wrap {
+  display: contents;
+}
+
 .header-badge {
   width: 120px;
   height: 100%;

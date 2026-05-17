@@ -168,6 +168,8 @@
   top: 8px;
   right: 8px;
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 4px;
 }
 
@@ -201,6 +203,7 @@
 }
 
 .job-actions button {
+  flex-shrink: 0;
   background: var(--bg-input);
   border: none;
   color: var(--text-secondary);

@@ -194,11 +194,17 @@
   .job-card .job-actions {
     position: static;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 10px;
     margin-left: 32px;
+    margin-right: 0;
     gap: 6px;
-    flex-wrap: wrap;
+    max-width: calc(100% - 32px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
   }
 
   .job-actions button {

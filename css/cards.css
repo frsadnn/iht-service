@@ -205,19 +205,35 @@
 }
 
 .job-actions button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   background: var(--bg-input);
   border: none;
   color: var(--text-secondary);
   width: 36px;
   height: 36px;
-  border-radius: var(--radius-sm);
+  padding: 0;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 15px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.job-actions button .job-action-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .job-actions button:hover {
   background: var(--accent);
+  color: var(--text-white);
+}
+
+.job-actions .btn-delete-job:hover {
+  background: var(--red);
   color: var(--text-white);
 }
 
@@ -332,17 +348,10 @@
 .absence-badge.leave { background: #e67e22; color: var(--text-white); }
 .absence-badge.mc { background: #9b59b6; color: var(--text-white); }
 
-/* Special action buttons on job cards */
-.btn-comment {
-  background: var(--bg-input) !important;
-  border: none !important;
-  color: var(--text-secondary) !important;
+/* Comment / photo buttons (count badges) */
+.btn-comment,
+.btn-photo {
   position: relative;
-}
-
-.btn-comment:hover {
-  background: var(--accent) !important;
-  color: var(--text-white) !important;
 }
 
 .comment-badge {
@@ -360,18 +369,6 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-}
-
-.btn-photo {
-  background: var(--bg-input) !important;
-  border: none !important;
-  color: var(--text-secondary) !important;
-  position: relative;
-}
-
-.btn-photo:hover {
-  background: var(--accent) !important;
-  color: var(--text-white) !important;
 }
 
 .photo-badge {

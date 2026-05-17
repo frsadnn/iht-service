@@ -1,6 +1,24 @@
 let editingJobIdx = -1;
 let editingJobDay = '';
 
+const JOB_ACTION_SVG_ATTRS =
+  'class="job-action-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+
+function jobActionIcon(inner) {
+  return `<svg ${JOB_ACTION_SVG_ATTRS}>${inner}</svg>`;
+}
+
+const JOB_ACTION_ICONS = {
+  edit: jobActionIcon('<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>'),
+  comment: jobActionIcon('<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>'),
+  photo: jobActionIcon('<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>'),
+  file: jobActionIcon('<path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>'),
+  calendar: jobActionIcon('<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>'),
+  chevronUp: jobActionIcon('<path d="m18 15-6-6-6 6"/>'),
+  chevronDown: jobActionIcon('<path d="m6 9 6 6 6-6"/>'),
+  trash: jobActionIcon('<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/>')
+};
+
 function openAddJob() {
   editingJobIdx = -1;
   editingJobDay = currentDay;
@@ -176,14 +194,14 @@ function renderJobCard(job, idx, dk) {
       ${renderJobStatusControl(job, idx, dk)}
     </div>
     <div class="job-actions">
-      <button class="btn-edit-job" onclick="openEditJob('${dk}',${idx})" title="Edit">✏️</button>
-      <button class="btn-comment" onclick="openComments('${dk}',${idx})" title="Comments">${commentBadge}💬</button>
-      <button class="btn-photo" onclick="openPhotos('${dk}',${idx})" title="Photos">${photoBadge}📷</button>
-      <button class="btn-edit-job" onclick="openFiles('${dk}',${idx})" title="Files">📎</button>
-      <button class="btn-edit-job" onclick="openReschedule('${dk}',${idx})" title="Reschedule">📅</button>
-      <button class="btn-edit-job" onclick="moveJobUp('${dk}',${idx})" title="Move Up">▲</button>
-      <button class="btn-edit-job" onclick="moveJobDown('${dk}',${idx})" title="Move Down">▼</button>
-      <button class="btn-edit-job" onclick="deleteJob('${dk}',${idx})" title="Delete">🗑️</button>
+      <button type="button" class="btn-edit-job" onclick="openEditJob('${dk}',${idx})" title="Edit">${JOB_ACTION_ICONS.edit}</button>
+      <button type="button" class="btn-comment" onclick="openComments('${dk}',${idx})" title="Comments">${commentBadge}${JOB_ACTION_ICONS.comment}</button>
+      <button type="button" class="btn-photo" onclick="openPhotos('${dk}',${idx})" title="Photos">${photoBadge}${JOB_ACTION_ICONS.photo}</button>
+      <button type="button" class="btn-edit-job" onclick="openFiles('${dk}',${idx})" title="Files">${JOB_ACTION_ICONS.file}</button>
+      <button type="button" class="btn-edit-job" onclick="openReschedule('${dk}',${idx})" title="Reschedule">${JOB_ACTION_ICONS.calendar}</button>
+      <button type="button" class="btn-edit-job" onclick="moveJobUp('${dk}',${idx})" title="Move Up">${JOB_ACTION_ICONS.chevronUp}</button>
+      <button type="button" class="btn-edit-job" onclick="moveJobDown('${dk}',${idx})" title="Move Down">${JOB_ACTION_ICONS.chevronDown}</button>
+      <button type="button" class="btn-edit-job btn-delete-job" onclick="deleteJob('${dk}',${idx})" title="Delete">${JOB_ACTION_ICONS.trash}</button>
     </div>
     ${salesCornerHtml}
   </div>`;

@@ -176,7 +176,7 @@ function renderJobCard(job, idx, dk) {
       customerSectionHtml += `<div class="job-customer-row">${customerStrong}</div>`;
     }
     if (job.address) {
-      customerSectionHtml += `<div class="job-address-line">📍 ${escapeHtml(job.address)}</div>`;
+      customerSectionHtml += `<div class="job-address-line">${escapeHtml(job.address)}</div>`;
     }
     customerSectionHtml += '</div>';
   }

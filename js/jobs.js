@@ -151,13 +151,17 @@ function renderJobCard(job, idx, dk) {
 
   const customerName = job.customer ? escapeHtml(job.customer) : '';
   const customerStrong = customerName ? `<strong class="job-customer-name">${customerName}</strong>` : '';
-  const addrSpan = job.address
-    ? `<span class="job-address-inline">📍 ${escapeHtml(job.address)}</span>`
-    : '';
-  const rowPieces = [customerStrong, addrSpan].filter(Boolean);
-  const customerRowHtml = rowPieces.length
-    ? `<div class="job-customer-row">${rowPieces.join('')}</div>`
-    : '';
+  let customerSectionHtml = '';
+  if (customerStrong || job.address) {
+    customerSectionHtml = '<div class="job-customer-block">';
+    if (customerStrong) {
+      customerSectionHtml += `<div class="job-customer-row">${customerStrong}</div>`;
+    }
+    if (job.address) {
+      customerSectionHtml += `<div class="job-address-line">📍 ${escapeHtml(job.address)}</div>`;
+    }
+    customerSectionHtml += '</div>';
+  }
   const salesCornerHtml = job.salesman
     ? `<div class="job-salesman-corner">(${escapeHtml(job.salesman)})</div>`
     : '';
@@ -166,7 +170,7 @@ function renderJobCard(job, idx, dk) {
     <div class="job-num">${idx + 1}</div>
     <div class="job-body">
       <div class="job-team">${teamHtml}${ibBadge}</div>
-      ${customerRowHtml}
+      ${customerSectionHtml}
       ${contactLineHtml}
       ${job.desc ? `<div class="job-desc">${escapeHtml(job.desc)}</div>` : ''}
       ${renderJobStatusControl(job, idx, dk)}

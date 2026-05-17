@@ -187,6 +187,7 @@
   .job-card .job-body { margin-left: 32px; margin-right: 0; }
   .job-card .job-team { font-size: 13px; }
   .job-card .job-customer-row,
+  .job-card .job-address-line,
   .job-card .job-contact-line { font-size: 13px; line-height: 1.4; }
   .job-card .job-salesman-corner { font-size: 13px; }
   .job-card .job-desc { font-size: 12px; }

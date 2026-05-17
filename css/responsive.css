@@ -1,5 +1,6 @@
 @media (max-width: 640px) {
-  input, textarea, select { font-size: 16px !important; }
+  /* 16px on inputs avoids iOS zoom; job status stays compact (see .job-status-select below) */
+  input, textarea, select:not(.job-status-select) { font-size: 16px !important; }
 
   html, body { height: 100%; }
   body {
@@ -193,8 +194,13 @@
   .job-card .job-desc { font-size: 12px; }
 
   .job-card .job-status-select {
-    min-height: 36px;
-    padding: 8px 32px 8px 12px;
+    font-size: 11px !important;
+    line-height: 1.2;
+    min-height: 0;
+    width: auto;
+    max-width: 100%;
+    padding: 4px 26px 4px 10px;
+    background-size: 10px;
     cursor: pointer;
     touch-action: manipulation;
   }

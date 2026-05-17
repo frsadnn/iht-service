@@ -190,7 +190,24 @@
   .job-card .job-customer-row,
   .job-card .job-address-line,
   .job-card .job-contact-line { font-size: 13px; line-height: 1.4; }
-  .job-card .job-salesman-corner { font-size: 13px; }
+  .job-card .job-salesman-corner {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    bottom: auto;
+    margin-top: 0;
+    max-width: calc(100% - 56px);
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .job-card:has(> .job-salesman-corner) .job-body {
+    padding-right: min(42%, 9rem);
+  }
   .job-card .job-desc { font-size: 12px; }
 
   .job-card .job-status-select {

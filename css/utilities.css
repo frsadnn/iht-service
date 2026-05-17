@@ -96,6 +96,8 @@
 .role-salesman #ibToggle,
 .role-salesman #ibAmountRow { display: none; }
 .role-salesman .status-badge { cursor: default !important; }
+.role-salesman .job-status-select,
+.view-only .job-status-select { pointer-events: none; }
 
 /* Technician */
 .role-technician .btn-edit-job { display: none; }

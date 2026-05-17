@@ -247,6 +247,57 @@
 .status-badge.completed { background: #e8f5e9; color: var(--green-dark); border: 1px solid var(--green); }
 .status-badge.cancelled { background: #fce8e6; color: var(--red); border: 1px solid var(--red); }
 
+/* Job status dropdown (admin) */
+.job-status-select {
+  display: inline-block;
+  margin-top: 5px;
+  max-width: 100%;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.2px;
+  border-radius: 10px;
+  padding: 5px 28px 5px 10px;
+  border: 1px solid;
+  cursor: pointer;
+  line-height: 1.2;
+  appearance: none;
+  -webkit-appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23555555' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.job-status-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 64, 92, 0.25);
+}
+
+.job-status-select.status-pending {
+  background-color: #f0f0f0;
+  color: #777;
+  border-color: var(--border-light);
+}
+
+.job-status-select.status-in-progress {
+  background-color: #fff8e6;
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.job-status-select.status-completed {
+  background-color: #e8f5e9;
+  color: var(--green-dark);
+  border-color: var(--green);
+}
+
+.job-status-select.status-cancelled {
+  background-color: #fce8e6;
+  color: var(--red);
+  border-color: var(--red);
+}
+
 /* Internal billing */
 .ib-badge {
   display: inline-block;

@@ -16,7 +16,7 @@ function canViewBilling() {
 }
 
 function canCycleStatus() {
-  return currentRole === 'admin';
+  return currentRole === 'admin' || currentRole === 'technician';
 }
 
 function canManageUsers() {

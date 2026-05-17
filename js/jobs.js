@@ -112,15 +112,29 @@ function moveJobDown(dk, idx) {
   render();
 }
 
-function cycleJobStatus(dk, idx) {
+function setJobStatus(dk, idx, newStatus) {
   if (!canCycleStatus()) return;
+  if (!STATUS_CYCLE.includes(newStatus)) return;
   const data = getDayData(dk);
   const job = data.jobs[idx];
   if (!job) return;
-  const cur = STATUS_CYCLE.indexOf(job.status || 'pending');
-  job.status = STATUS_CYCLE[(cur + 1) % STATUS_CYCLE.length];
+  if ((job.status || 'pending') === newStatus) return;
+  job.status = newStatus;
   persistState();
   render();
+}
+
+function renderJobStatusControl(job, idx, dk) {
+  const status = job.status || 'pending';
+  const statusLabel = STATUS_LABELS[status] || status;
+  if (!canCycleStatus()) {
+    return `<span class="status-badge ${status}">● ${statusLabel}</span>`;
+  }
+  const options = STATUS_CYCLE.map(s =>
+    `<option value="${s}"${s === status ? ' selected' : ''}>${STATUS_LABELS[s]}</option>`
+  ).join('');
+  return `<select class="job-status-select status-${status}" aria-label="Job status"
+    onchange="setJobStatus('${dk}',${idx}, this.value)">${options}</select>`;
 }
 
 function renderJobCard(job, idx, dk) {
@@ -130,10 +144,6 @@ function renderJobCard(job, idx, dk) {
     : '';
   const ibBadge = job.internalBilling ? '<span class="ib-badge">IB</span>' : '';
   const ibClass = job.internalBilling ? ' internal-billing' : '';
-  const status = job.status || 'pending';
-  const statusLabel = STATUS_LABELS[status] || status;
-  const clickable = canCycleStatus() ? ' clickable' : '';
-  const statusClick = canCycleStatus() ? `onclick="cycleJobStatus('${dk}',${idx})"` : '';
   const commentCount = (job.comments || []).length;
   const commentBadge = commentCount > 0 ? `<span class="comment-badge">${commentCount}</span>` : '';
   const photoCount = (job.photos || []).length;
@@ -159,7 +169,7 @@ function renderJobCard(job, idx, dk) {
       ${customerRowHtml}
       ${contactLineHtml}
       ${job.desc ? `<div class="job-desc">${escapeHtml(job.desc)}</div>` : ''}
-      <span class="status-badge ${status}${clickable}" ${statusClick}>● ${statusLabel}</span>
+      ${renderJobStatusControl(job, idx, dk)}
     </div>
     <div class="job-actions">
       <button class="btn-edit-job" onclick="openEditJob('${dk}',${idx})" title="Edit">✏️</button>

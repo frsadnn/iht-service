@@ -216,10 +216,15 @@
   }
 
   .job-actions button {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     font-size: 15px;
     border-radius: var(--radius-md);
+  }
+
+  .job-actions button .job-action-icon {
+    width: 15px;
+    height: 15px;
   }
 
   .modal-bg { align-items: flex-end; }

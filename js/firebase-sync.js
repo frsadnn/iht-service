@@ -73,6 +73,7 @@ function setupFirebaseListener() {
           }
         } else if (isFirstSchedSnap) {
           isFirstSchedSnap = false;
+          try { render(); } catch (e) {}
         }
       }
       setSyncStatus('synced');

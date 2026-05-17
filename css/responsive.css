@@ -192,6 +192,13 @@
   .job-card .job-salesman-corner { font-size: 13px; }
   .job-card .job-desc { font-size: 12px; }
 
+  .job-card .job-status-select {
+    min-height: 36px;
+    padding: 8px 32px 8px 12px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
   .job-card .job-actions {
     position: static;
     display: flex;

@@ -154,6 +154,7 @@ function onAuthStateChanged(user) {
       updateUserInfo(userData.name || user.email, userData.role);
       fbRef = firebase.database().ref('scheduleData');
       setupFirebaseListener();
+      render();
     });
   } else {
     currentUser = null;
